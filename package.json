@@ -4,7 +4,7 @@
   "description": "A backend REST API for use with the BestPrep Career Day app.",
   "main": "server.js",
   "scripts": {
-    "start": "npm install && cd client && npm install && npm run build && cd .. && node server",
+    "start": "npm install && cd client && npm install && npm install react-scripts && npm run build && cd .. && node server",
     "server": "nodemon server.js --ignore client",
     "client": "npm run dev --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
