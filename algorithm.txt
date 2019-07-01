@@ -1,0 +1,26 @@
+Overview of Katie's idea for the matching algorithm:
+• Iterate randomly through the set of students who do not have full schedules
+• At each one, check their highest preference (do we remove preferences that have been 
+filled/not fulfilled?), and attempt to assign the student to that subject in one of the 
+student's open time slots
+• If the student has no preferences left, remove them from the list/set and put them in 
+another ArrayList (to iterate through to assign them randomly once there are no students 
+left with preferences)
+• INTERAL SWAP: If all the sessions of that subject during the student's open time slots 
+are full, aka the addAssignment failed, check to see if there are any spots for that 
+subject open during times that the student is full during, and if there are then check to 
+see if the subject the student is taking already at that time has open spots during one of 
+the student's other open time slots, and if it does then remove the assignment of the 
+subject at the time with the other subject being available and add the assignment for the 
+for that subject at another one of the student's open slots and add the assignment of the 
+other subject at the original time slot; if this cannot happen, then the student's next 
+preference is now trying to be fulfilled before going on to the next student
+• EXTERNAL SWAP: Once we start assigning students randomly once there are no preferences 
+left, we iterate through the students left who have open slots and no preferences and 
+at each student go through each empty time slot and go through the classes and find one
+with an open spot and assign the student to it; if a student ends up having only a 
+subject/subjects that they are already in available to them during their open time slot 
+trying to be filled, then go through the other students and check if they are taking a 
+subject then that the student hasn't already taken and check if the donor student hasn't 
+already taken the open subject/subjects during that time, and if the swap works then make 
+the swap and if not then go on to the other students

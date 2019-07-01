@@ -1,0 +1,39 @@
+{
+    "classRoom_id": "wayzata_high_school_john_doe",
+    "teacher_first": "John",
+    "teacher_last": "Doe",
+    "classroom_students": [
+        {
+            "student_first": "Lily",
+            "student_last": "Krohn",
+            "student_id": "wayzata_high_school_lily_krohn",
+            "teacher_first": "John",
+            "teacher_last": "Doe",
+            "numPeriods": 3,
+            "schedule": [
+                "Math",
+                "Science",
+                "Finance"
+            ],
+            "preferences": [
+                "Math",
+                "Science",
+                "Physics"
+            ]
+        }
+    ],
+    "sessions": [
+        {
+            "subject": "Math",
+            "classroom_id": "wayzata_high_school_john_doe",
+            "capacity": 20,
+            "session_students": [
+                "wayzata_high_school_lily_krohn",
+                "wayzata_high_school_troy_oster",
+                "wayzata_high_school_ethan_reed",
+                "wayzata_high_school_katie_mchugh",
+                "wayzata_high_school_shrayas_sonbarse"
+            ]
+        }
+    ]
+}
