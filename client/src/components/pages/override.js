@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import StudentCard from '../organisms/student_card/StudentCard';
 import axios from 'axios';
-//Test
-let data = require('../../CareerDay.json')
+
+let data = require('../../CareerDay.json') //TODO: Get rid of dummy data
 const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
@@ -18,7 +18,7 @@ const Override = (props) => {
     const dataCopy = JSON.parse(JSON.stringify(classroomData));
     const handleClassChange = (studentIndex,classIndex,event) => {
         dataCopy.classroom_students[studentIndex].schedule[classIndex] = event.target.value
-        setclassroomData(dataCopy)
+        setclassroomData(dataCopy) //Sets the state so that the page rerenders with the newly selected item
     }
     const classes = useStyles();
     return(
