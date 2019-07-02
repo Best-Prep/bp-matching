@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div className="App"> 
-        <Header/>
+        <Header linkTo='/' headName='BestPrep'/>
         <Route path="/import" exact component={Import} />
         <Route path="/Override" exact component={Override} />
         {/* <TestComponent number="this.state.number"/>
