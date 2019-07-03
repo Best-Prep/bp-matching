@@ -7,6 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Dropdown from '../../atoms/Dropdown/Dropdown'
 import Typography from "@material-ui/core/Typography";
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   card: {
@@ -22,13 +23,24 @@ const ClassroomCard = (props) => {
   const classes = useStyles();
 
   return (
-    <div>
-
-    <Card className={classes.card}>
+   <div style={{paddingLeft:30, marginTop:50}}>
+          
+     <Grid
+     container
+     direction="column"
+     justify="space-between"
+     alignItems="center"
+     >
+   
+   <Grid item>
+     <Card className={classes.card}>
       <CardActionArea>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h3">
             {props.teacherName}
+          </Typography>
+          <Typography gutterBottom variant="h7" component="h3">
+            {props.schoolName}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -38,6 +50,8 @@ const ClassroomCard = (props) => {
         </Button>
       </CardActions>
     </Card>
+    </Grid>
+    </Grid>
     </div>
   );
 }
