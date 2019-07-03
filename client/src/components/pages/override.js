@@ -13,7 +13,19 @@ const useStyles = makeStyles(theme => ({
 
   //TODO: Add an actual list of potential classes to choose from / implement functionality to determine if class is full
   
-const Override = (props) => { 
+const Override = (props) => {
+    const handleClick = () => {
+        axios.post('/user', {
+            firstName: 'Fred',
+            lastName: 'Flintstone'
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    } 
     const [classroomData, setclassroomData] = useState(data)
     const dataCopy = JSON.parse(JSON.stringify(classroomData));
     const handleClassChange = (studentIndex,classIndex,event) => {
