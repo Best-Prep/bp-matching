@@ -11,6 +11,8 @@ const useStyles = makeStyles(theme => ({
     }
   }));
 
+
+
   //TODO: Add an actual list of potential classes to choose from / implement functionality to determine if class is full
   
 const Override = (props) => {
@@ -37,7 +39,7 @@ const Override = (props) => {
         
         <Grid container spacing={3} className={classes.root}>
             <Grid container item direction="column" spacing={2} xs={12}>
-                {classroomData.classroom_students.map((item,index) => (
+                {classroomData.classrooms[0].classroom_students.map((item,index) => (
                     <Grid item key={item.student_id}>
                         <StudentCard testVal={dataCopy.classroom_students[0].student_first} studentIndex = {index} studentName={item.student_first + " " + item.student_last} schedule={item.schedule} handleChange={handleClassChange}/>
                     </Grid>
