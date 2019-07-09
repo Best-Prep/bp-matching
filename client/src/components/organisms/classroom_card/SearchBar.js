@@ -37,11 +37,11 @@ const useStyles = makeStyles(theme => ({
     },
   },
   searchIcon: {
-    width: theme.spacing(7),
+    width: theme.spacing(140),
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
-    display: 'flex',
+    display: 'flexcenter',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -50,40 +50,28 @@ const useStyles = makeStyles(theme => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),
-    transition: theme.transitions.create('width'),
-    width: '100%',
+    // transition: theme.transitions.create('width'),
+    width: '100%', 
+    alignItems: 'center',
     [theme.breakpoints.up('sm')]: {
       width: 120,
-      '&:focus': {
-        width: 200,
-      },
     },
   },
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
+      
+          <div class="container">
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
+              onChange={props.handleChange}
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,
@@ -92,8 +80,8 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'Search' }}
             />
           </div>
-        </Toolbar>
-      </AppBar>
+          </div>
+        
     </div>
   );
 }

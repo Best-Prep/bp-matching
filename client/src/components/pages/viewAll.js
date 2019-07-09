@@ -3,8 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import ClassroomCard from '../organisms/classroom_card/ClassroomCard';
 import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
+import SearchBar from '../organisms/classroom_card/SearchBar';
 
-let data = require('../../CareerDay.json')  
+ 
+let data = require('../../CareerDay.json') 
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -14,20 +16,27 @@ const useStyles = makeStyles(theme => ({
 
 const ViewAll = (props) => {
     
+const [searchField, setsearchField] = useState('')
 const [classroomData, setclassroomData] = useState(data)
 const dataCopy = JSON.parse(JSON.stringify(classroomData));
+
+
+const handleChange = (event) => {
+  setsearchField(event.target.value)
+}
     return (
         <div>
           <h1>Select a Classroom</h1>
 
-          <div>
-            <input type="text" className="input" placeholder="Search..." />
+          <div class="container">
+            <SearchBar handleChange = {handleChange}/>
+            {/* <input type="text" className="input" placeholder="Search..." />
               <ul>
-              </ul>
+              </ul> */}
           </div>
           <div style={{marginBottom:70}}>
           <Grid container alignItems="left"> 
-            {dataCopy.classrooms.map((item, index) => {
+            {dataCopy.classrooms.filter(e => e.school.toUpperCase().includes(searchField.toUpperCase())||  (e.teacher_first + e.teacher_last).toUpperCase().includes(searchField.toUpperCase()) ).map((item, index) => {
               return (
                
                 <ClassroomCard teacherName={item.teacher_first + " " + item.teacher_last} schoolName={item.school}>xs=3</ClassroomCard>
