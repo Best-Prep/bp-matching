@@ -7,7 +7,7 @@ import { Select, MenuItem } from '@material-ui/core';
 
 const Dropdown = (props) => {
     return (
-        <div>
+        <div class="container">
             <Select
                 value={props.value}
                 onChange={(e) => props.handleChange(props.studentIndex,props.classIndex,e)}

@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -7,6 +8,8 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
+import { NavLink } from 'react-router-dom';
+
 
 const useStyles = makeStyles({
   card: {
@@ -45,9 +48,10 @@ const ClassroomCard = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          View Class Schedule
-        </Button>
+        <Button><NavLink to="/Override" style={{ textDecoration: 'none' }}>View Class Schedule</NavLink></Button>
+     
+
+        {/* <Button size="small" color="primary" onClick={this.routeChange}>View Class Schedule</Button> */}
       </CardActions>
     </Card>
     </Grid>

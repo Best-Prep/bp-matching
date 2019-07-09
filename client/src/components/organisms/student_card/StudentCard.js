@@ -18,8 +18,8 @@ const StudentCard = (props) => {
     const classes = useStyles();
     //TODO: add actual functionality instead of the dummy data in the Dropdown menuItems prop
     return (
-        <div>
-            <Paper justifyContent="space-between">
+        <div style={{marginLeft:200, marginRight:200}}>
+            <Paper>
                 <Grid
                     container
                     direction="row"
@@ -27,9 +27,11 @@ const StudentCard = (props) => {
                     alignItems="center"
                 >
                     <Grid item>
+                        <div style={{paddingLeft:30}}>
                         <Typography>
                             {props.studentName}
                         </Typography>
+                        </div>
                     </Grid>
                     <Grid item>
                         <div style={{paddingRight:30}}>

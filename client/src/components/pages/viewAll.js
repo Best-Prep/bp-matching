@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
 import SearchBar from '../organisms/classroom_card/SearchBar';
 
- 
+
 let data = require('../../CareerDay.json') 
 
 const useStyles = makeStyles(theme => ({
