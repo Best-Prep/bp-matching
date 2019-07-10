@@ -12,7 +12,7 @@ var sheet;
 //Sets the ID of the spreadsheet we are accessing, called when the user submits the link.
 router.post('/importSheet', async function(req, res) {
     var str = req.body.sheetLink; //This gets the sheetLink from the request object
-    
+    //TODO: Documentation for this, but also move the code from Repl.it when ready
     /*This matches the 16 characters in between the back slashes ('/'), 
     thus grabbing the sheet ID required to connect to the sheet*/
     var result = str.match(/([^\/]+){16}/)[0]; 

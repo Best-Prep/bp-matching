@@ -2,6 +2,7 @@
     "classRoom_id": "wayzata_high_school_john_doe",
     "teacher_first": "John",
     "teacher_last": "Doe",
+    "school": "Wayzata High School",
     "classroom_students": [
         {
             "student_first": "Lily",

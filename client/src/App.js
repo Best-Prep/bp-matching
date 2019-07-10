@@ -8,7 +8,9 @@ import Import from './components/pages/import';
 import Override from './components/pages/override';
 import ViewAll  from './components/pages/viewAll';
 
-//<Route path="/studentEntry" exact component={} />
+//Example way to add a new route
+//<Route path="/<path>" exact component={<component to render when on this route>} />
+
 function App() {
   return (
     <Router>

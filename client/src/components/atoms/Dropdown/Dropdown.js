@@ -1,7 +1,9 @@
 import React from 'react'
 import { Select, MenuItem } from '@material-ui/core';
 
-//<Dropdown name="teachers" id="teacher-dropdown" menuItems=["Bob","Joe", "John Doe"] handleChange = this.handleChange value = some_value_in_state
+/* This is how you use this component elsewhere.
+ <Dropdown name="teachers" id="teacher-dropdown" menuItems=[<some items>]
+ handleChange = <someFunction> value = some_value_in_state/> */
 
 //TODO: Possibly add the ability to provide a width prop
 
@@ -18,7 +20,7 @@ const Dropdown = (props) => {
                 {props.menuItems.map((item,index) => (
                     <MenuItem value={item} key={item+index} >{item}</MenuItem>
                 ))}
-        </Select>
+            </Select>
         </div>
     )
 }
