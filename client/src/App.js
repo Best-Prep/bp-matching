@@ -13,7 +13,9 @@ function App() {
   return (
     <Router>
       <div className="App"> 
-        <Header linkTo='/' headName='BestPrep'/>
+      <div style={{fontWeight: 'bold'}}>
+        <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+        </div>
         <Route path="/import" exact component={Import} />
         <Route path="/Override" exact component={Override} />
         <Route path="/ViewAll" exact component={ViewAll} />
