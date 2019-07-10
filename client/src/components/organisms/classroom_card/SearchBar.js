@@ -65,7 +65,7 @@ export default function SearchAppBar(props) {
   return (
     <div className={classes.root}>
       
-          <div class="container">
+          <div className="searchContainer">
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

@@ -4,6 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import StudentCard from '../organisms/student_card/StudentCard';
 import axios from 'axios';
 import SearchBar from '../organisms/classroom_card/SearchBar';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 
 let data = require('../../CareerDay.json') //TODO: Get rid of dummy data
 const useStyles = makeStyles(theme => ({
@@ -47,13 +49,17 @@ const Override = (props) => {
     return(
         
        <div>
-        <h2>_______'s Class Schedule</h2>
-        <h4>_______ High School</h4>
-        <SearchBar handleChange = {handleChange}/>
-        <div style={{marginTop:40}}>
+        <h2>John Doe's Class Schedule</h2>
+        {/* <h4>Wayzata High School</h4> */}
+        {/* <Container maxWidth="lg">
+        <Typography component="div" style={{ height: '100vh'}} > */}
+    
+        <div class="searchBar">
+          <SearchBar handleChange = {handleChange}/>
+        </div>
+        <div style={{marginTop:20}}>
         <Grid container spacing={3} className={classes.root}>
             <Grid container item direction="column" spacing={2} xs={12}>
-           
                 {classroomData.classrooms[0].classroom_students.filter(e => e.student_first.toUpperCase().includes(searchField.toUpperCase())).map((item,index) => (
                     <Grid item key={item.student_id}>
                         <StudentCard testVal={dataCopy.classrooms[0].classroom_students[0].student_first} studentIndex = {index} studentName={item.student_first + " " + item.student_last} schedule={item.schedule} handleChange={handleClassChange}/>
@@ -62,7 +68,12 @@ const Override = (props) => {
             </Grid>
        </Grid>
        </div>
+       {/* </Typography>
+       </Container> */}
        </div>
+    
+  
+      
        
     )
 }

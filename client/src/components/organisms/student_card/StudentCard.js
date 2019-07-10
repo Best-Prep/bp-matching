@@ -34,7 +34,7 @@ const StudentCard = (props) => {
                         </div>
                     </Grid>
                     <Grid item>
-                        <div style={{paddingRight:30}}>
+                        <div style={{paddingRight:15}}>
                             <Typography spacing={3}>
                             <List className={classes.lists}>
                                 {props.schedule.map((item,index) => (

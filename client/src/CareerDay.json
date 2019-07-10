@@ -75,35 +75,35 @@
     ]
 },
 {
-    "classRoom_id": "wayzata_high_school_john_doe",
+    "classRoom_id": "wayzata_high_school_amy_smith",
     "teacher_first": "Amy",
     "teacher_last": "Smith",
     "school": "Bay Port High School",
     "classroom_students": [
         {
-            "student_first": "Lily",
+            "student_first": "Ava",
             "student_last": "Krohn",
-            "student_id": "wayzata_high_school_lily_krohn",
-            "teacher_first": "John",
-            "teacher_last": "Doe",
+            "student_id": "wayzata_high_school_ava_krohn",
+            "teacher_first": "Amy",
+            "teacher_last": "Smith",
             "numPeriods": 3,
             "schedule": [
                 "Math",
-                "Science",
-                "Finance"
+                "German",
+                "Science"
             ],
             "preferences": [
                 "Math",
-                "Science",
-                "Physics"
+                "German",
+                "Science"
             ]
         },
         {
-            "student_first": "Troy",
-            "student_last": "Oster",
-            "student_id": "wayzata_high_school_troy_oster",
-            "teacher_first": "John",
-            "teacher_last": "Doe",
+            "student_first": "Sally",
+            "student_last": "Brown",
+            "student_id": "wayzata_high_school_sally_brown",
+            "teacher_first": "Amy",
+            "teacher_last": "Smith",
             "numPeriods": 3,
             "schedule": [
                 "German",
@@ -120,8 +120,8 @@
             "student_first": "Ethan",
             "student_last": "Reed",
             "student_id": "wayzata_high_school_Ethan_Reed",
-            "teacher_first": "John",
-            "teacher_last": "Doe",
+            "teacher_first": "Amy",
+            "teacher_last": "Smith",
             "numPeriods": 3,
             "schedule": [
                 "Business",
@@ -138,7 +138,7 @@
     "sessions": [
         {
             "subject": "Math",
-            "classroom_id": "wayzata_high_school_john_doe",
+            "classroom_id": "wayzata_high_school_amy_smith",
             "capacity": 20,
             "session_students": [
                 "wayzata_high_school_lily_krohn",
@@ -309,8 +309,8 @@
 
 {
     "classRoom_id": "wayzata_high_school_john_doe",
-    "teacher_first": "Katie",
-    "teacher_last": "Green",
+    "teacher_first": "Michael",
+    "teacher_last": "Scott",
     "school": "Geneva High School",
     "classroom_students": [
         {
@@ -387,8 +387,8 @@
 
 {
     "classRoom_id": "wayzata_high_school_john_doe",
-    "teacher_first": "Katie",
-    "teacher_last": "Green",
+    "teacher_first": "Ann",
+    "teacher_last": "Avery",
     "school": "Geneva High School",
     "classroom_students": [
         {
@@ -465,8 +465,8 @@
 
 {
     "classRoom_id": "wayzata_high_school_john_doe",
-    "teacher_first": "Katie",
-    "teacher_last": "Green",
+    "teacher_first": "Mike",
+    "teacher_last": "Andrews",
     "school": "Geneva High School",
     "classroom_students": [
         {
@@ -543,8 +543,8 @@
 
 {
     "classRoom_id": "wayzata_high_school_john_doe",
-    "teacher_first": "Katie",
-    "teacher_last": "Green",
+    "teacher_first": "Bob",
+    "teacher_last": "Anderson",
     "school": "Geneva High School",
     "classroom_students": [
         {
