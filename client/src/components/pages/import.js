@@ -12,10 +12,10 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-
+import Container from '@material-ui/core/Container';
 //Custom Components
-import SheetsForm from '../organisms/sheets_link_form/sheets_link_form'
-import Step2 from '../organisms/steps/step2/step2'
+import Step1 from '../organisms/steps/step1'
+import Step2 from '../organisms/steps/step2'
 
 const UseStyles = makeStyles(() => ({
     root: {
@@ -26,6 +26,10 @@ const UseStyles = makeStyles(() => ({
     },
     instructions: {
 
+    },
+    container: {
+        paddingBottom: '3%',
+        paddingTop: '3%'
     }
 }))
 
@@ -33,7 +37,7 @@ const Import = (props) => {
     const [sheetLink, setSheetLink] = useState("")
     const [subjects, setSubjects] = useState([{
         "name": "",
-        "seats": 0   
+        "seats": ""   
     }])
     const [activeStep, setActiveStep] = useState(0)
     //Handles the change of the sheet link text field
@@ -68,16 +72,49 @@ const Import = (props) => {
           });
     }
     //This method takes in the step number, and returns the JSX content for that step
+    const handleStep2Change = (event, index) => {
+        let subjectsCopy = [...subjects]
+        subjectsCopy[index][event.target.name] = event.target.value
+        setSubjects(subjectsCopy)
+    }
+
+    //Handles the addition of a new subject, this is used in Step2
+    const handleAddSubject = (event) => {
+        event.preventDefault()
+        let subjectsCopy = [...subjects]
+        subjectsCopy.push({"name": "", "seats":""})
+        setSubjects(subjectsCopy)
+    }
+
+    const handleRemoveSubject = (event,index) => {
+        let subjectsCopy = [...subjects]
+        subjectsCopy.splice(index,1)
+        setSubjects(subjectsCopy)
+    }
+
     const getStepContent = (step) => {
         switch (step) {
             case 0:
-                return <SheetsForm handleChange={handleChange} sheetsLink={sheetLink} handleSubmit={handleSubmit}/>;
+                return (
+                    <Step1
+                        handleChange={handleChange}
+                        sheetsLink={sheetLink}
+                        handleSubmit={handleSubmit}
+                        instructionHeader="Step 1"
+                        instructions="Paste the link to the Career Day Google Sheet. Then click Submit."
+                    />
+                )
             case 1:
                 return (
-                    <div>
-                        <Step2 headerText="Step 2" subText="Instructions go here" />
-                    </div>
-
+                        <Step2
+                            subjects={subjects}
+                            instructionHeader="Step 2"
+                            instructions=
+                                "Add the Subjects that will be present at this Career Day, then add the total number of seats at the career day for the subject"
+                            handleChange={handleStep2Change}
+                            addSubject={handleAddSubject}
+                            removeSubject={handleRemoveSubject}
+                        />
                 ) ;
             case 2:
                 return 'StepComponent1';
@@ -102,10 +139,10 @@ const Import = (props) => {
     const classes = UseStyles();
     const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
     return (
-        <div style={{width: '90%', margin: 'auto', paddingTop: '5%'}}>
+        <Container className={classes.container}>
             <Grid container className={classes.root} spacing={3}>
                 <Grid item xs={12}>
-                    <div style={{height: '70vh'}}>
+                    <div style={{minHeight: '70vh'}}>
                     <Stepper activeStep={activeStep}>
                         {steps.map((label, index) => {
                             return (
@@ -133,10 +170,8 @@ const Import = (props) => {
                                 </Button>
                             </div>
                         ) : (
-                            <div>
-                                <Typography className={classes.instructions}>
-                                    {getStepContent(activeStep)}
-                                </Typography>
+                            <Container>
+                                {getStepContent(activeStep)}
                                 <div>
                                     <Button 
                                         disabled={activeStep === 0} 
@@ -154,13 +189,13 @@ const Import = (props) => {
                                         Next
                                     </Button>
                                 </div>
-                            </div>
+                            </Container>
                         )}
                     </div>
                     </div>
                 </Grid>
             </Grid>
-        </div>
+        </Container>
     )
 }
 

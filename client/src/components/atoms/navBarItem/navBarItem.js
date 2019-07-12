@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 const NavBarItem = (props) => {
     return (
         <ListItemText inset>
-                <Link to={props.linkTo} as='/posts' cursor="pointer" style={{textDecoration: 'none', color:"inherit"}}>
+                <Link to={props.linkTo} cursor="pointer" style={{textDecoration: 'none', color:"inherit"}}>
                         <Typography color="inherit" variant="title" >
                                 {props.label}
                         </Typography>

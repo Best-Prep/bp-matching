@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 const SheetForm = (props) => {
     const classes = useStyles();
     return (
-      <form className={classes.container} noValidate autoComplete="off">
+      <div>
             <TextField
                 name="sheetsLink"
                 label="Link to spreadsheet"
@@ -31,7 +31,7 @@ const SheetForm = (props) => {
             <Button variant="contained" color="primary" className={classes.button} onClick={props.handleSubmit}>
               Submit
             </Button>
-      </form>
+      </div>
     )
 }
 

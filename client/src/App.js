@@ -7,6 +7,7 @@ import Header from './components/organisms/header/header';
 import Import from './components/pages/import';
 import Override from './components/pages/override';
 import ViewAll  from './components/pages/viewAll';
+import careerDayDashboard from './components/pages/careerDayDashboard';
 
 //Example way to add a new route
 //<Route path="/<path>" exact component={<component to render when on this route>} />
@@ -15,14 +16,13 @@ function App() {
   return (
     <Router>
       <div className="App"> 
-      <div style={{fontWeight: 'bold'}}>
-        <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+        <div style={{fontWeight: 'bold'}}>
+          <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
         </div>
         <Route path="/import" exact component={Import} />
         <Route path="/Override" exact component={Override} />
         <Route path="/ViewAll" exact component={ViewAll} />
-        {/* <TestComponent number="this.state.number"/>
-        <TestComponent number={6}/> */}
+        <Route path="/dashboard" exact component={careerDayDashboard} />
       </div>
     </Router>
   );

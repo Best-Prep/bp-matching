@@ -5,12 +5,14 @@ const School = mongoose.model('Schools', new mongoose.Schema({
     "name": String,
     "sessions": [{
         "careerDayId": String, //Reference to Career day master Id
+        "id": String,
         "name": String,
+        "seats": Number,
         "period": Number,
         "assignedStudents": [{
-            "student_id": String, //Reference to Student Master Id from classroom
-            "student_first_name": String,
-            "student_last_name": String
+            "id": String, //Reference to Student Master Id from classroom
+            "firstName": String,
+            "lastName": String
         }]
     }]
 }))

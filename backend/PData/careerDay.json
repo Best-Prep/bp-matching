@@ -1,0 +1,39 @@
+{
+  "id": "3sn4g81ojxywbace",
+  "date": "07/11/2019",
+  "schools": [],
+  "subjects": [
+    {
+      "id": "3sn4g81ojxywbacf",
+      "name": "Subject0"
+    },
+    {
+      "id": "3sn4g81ojxywbacg",
+      "name": "Subject1"
+    },
+    {
+      "id": "3sn4g81ojxywbach",
+      "name": "Subject2"
+    },
+    {
+      "id": "3sn4g81ojxywbaci",
+      "name": "Subject3"
+    },
+    {
+      "id": "3sn4g81ojxywbacj",
+      "name": "Subject4"
+    },
+    {
+      "id": "3sn4g81ojxywback",
+      "name": "Subject5"
+    },
+    {
+      "id": "3sn4g81ojxywbacl",
+      "name": "Subject6"
+    },
+    {
+      "id": "3sn4g81ojxywbacm",
+      "name": "Subject7"
+    }
+  ]
+}
