@@ -7,10 +7,10 @@ import NavBar from '../../molecules/navbar/navbar';
 
 const Header = (props) => {
     return (
-        <AppBar color="primary" position="static">
+        <AppBar style={{background: '#0067ac'}} position="static">
             <Toolbar>
                 <Typography variant="title" color="inherit">
-                    <Link to={props.linkTo} cursor="pointer" style={{textDecoration: 'none', color:"inherit"}}>
+                    <Link to={props.linkTo} cursor="pointer" style={{textDecoration: 'none', color:"#ffffff"}}>
                         {props.headName}
                     </Link>
                 </Typography>

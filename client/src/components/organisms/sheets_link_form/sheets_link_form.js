@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Button, TextField} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { withTheme } from '@material-ui/styles';
 const useStyles = makeStyles(theme => ({
     container: {
       // display: 'flex',
@@ -35,4 +35,4 @@ const SheetForm = (props) => {
     )
 }
 
-export default SheetForm
+export default withTheme(SheetForm)

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import { makeStyles } from '@material-ui/core/styles';
-
+import { withTheme } from '@material-ui/styles';
 //Components -- Material-UI
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -199,4 +199,4 @@ const Import = (props) => {
     )
 }
 
-export default Import
+export default withTheme(Import);
