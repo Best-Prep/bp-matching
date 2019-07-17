@@ -6,8 +6,9 @@ import Grid from '@material-ui/core/Grid';
 import SearchBar from '../organisms/classroom_card/SearchBar';
 
  
-let data = require('../../CareerDay.json') 
-
+let data = require('../../careerDay.json') 
+let registeringClasses = require('../../registeringClasses.json') 
+registeringClasses = registeringClasses.filter(registeringClass => registeringClass.careerDayId === data.id)
 const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
@@ -17,9 +18,9 @@ const useStyles = makeStyles(theme => ({
 const ViewAll = (props) => {
     
 const [searchField, setsearchField] = useState('')
-const [classroomData, setclassroomData] = useState(data)
-const dataCopy = JSON.parse(JSON.stringify(classroomData));
+const [classroomData, setclassroomData] = useState(registeringClasses)
 
+let dataCopy = JSON.parse(JSON.stringify(classroomData));
 
 const handleChange = (event) => {
   setsearchField(event.target.value)
@@ -36,11 +37,9 @@ const handleChange = (event) => {
           </div>
           <div style={{marginBottom:70}}>
           <Grid container alignItems="left"> 
-            {dataCopy.classrooms.filter(e => e.school.toUpperCase().includes(searchField.toUpperCase())||  (e.teacher_first + e.teacher_last).toUpperCase().includes(searchField.toUpperCase()) ).map((item, index) => {
+            {dataCopy.filter(e => e.school.name.toUpperCase().includes(searchField.toUpperCase())||  (e.teacher.firstName + e.teacher.lastName).toUpperCase().includes(searchField.toUpperCase()) ).map((item, index) => {
               return (
-               
-                <ClassroomCard teacherName={item.teacher_first + " " + item.teacher_last} schoolName={item.school}>xs=3</ClassroomCard>
-                
+                <ClassroomCard teacherName={item.teacher.firstName + " " + item.teacher.lastName} schoolName={item.school.name}>xs=3</ClassroomCard>
               )
             })}
            </Grid>

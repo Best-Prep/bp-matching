@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
 const StudentCard = (props) => {
 
     const classes = useStyles();
-    //TODO: add actual functionality instead of the dummy data in the Dropdown menuItems prop
+    //TODO: add actual functionality instead of the dummy data in the Dropdown menuItems prop, fix handleChange for dropdown
     return (
         <div style={{marginLeft:200, marginRight:200}}>
             <Paper>
@@ -39,7 +39,7 @@ const StudentCard = (props) => {
                             <List className={classes.lists}>
                                 {props.schedule.map((item,index) => (
                                     <ListItem>
-                                        <Dropdown menuItems={["math","science","physics","finance"]} studentIndex={props.studentIndex} classIndex={index} value={item} key={"item"+index} handleChange={props.handleChange}/>
+                                        <Dropdown menuItems={["math","science","physics","finance"]} studentIndex={props.studentIndex} classIndex={index} value={item.name} key={"item"+index} handleChange={props.handleChange}/>
                                     </ListItem>
                                 ))}
                             </List>

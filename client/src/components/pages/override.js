@@ -7,7 +7,10 @@ import SearchBar from '../organisms/classroom_card/SearchBar';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
-let data = require('../../CareerDay.json') //TODO: Get rid of dummy data
+let data = require('../../careerDay.json') 
+let registeringClasses = require('../../registeringClasses.json') 
+
+
 const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
@@ -19,23 +22,15 @@ const useStyles = makeStyles(theme => ({
   //TODO: Add an actual list of potential classes to choose from / implement functionality to determine if class is full
   
 const Override = (props) => {
+    let testid = "3sn4g4kkjy60048p"
     const handleClick = () => {
-        axios.post('/user', {
-            firstName: 'Fred',
-            lastName: 'Flintstone'
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
     } 
+    registeringClasses = registeringClasses.filter(registeringClass => registeringClass.careerDayId === data.id)
     const [searchField, setsearchField] = useState('')
-    const [classroomData, setclassroomData] = useState(data)
+    const [classroomData, setclassroomData] = useState(registeringClasses)
     const dataCopy = JSON.parse(JSON.stringify(classroomData));
     const handleClassChange = (studentIndex,classIndex,event) => {
-        dataCopy.classroom_students[studentIndex].schedule[classIndex] = event.target.value
+        dataCopy[classIndex].students[studentIndex].schedule[classIndex] = event.target.value
         setclassroomData(dataCopy) //Sets the state so that the page rerenders with the newly selected item
     }
 
@@ -45,7 +40,7 @@ const Override = (props) => {
     }
 
     const classes = useStyles();
-
+    let filteredClasses = classroomData.filter(e => e.id === testid)
     return(
         
        <div>
@@ -57,12 +52,13 @@ const Override = (props) => {
         <div class="searchBar">
           <SearchBar handleChange = {handleChange}/>
         </div>
+        {filteredClasses[0].id}
         <div style={{marginTop:20}}>
         <Grid container spacing={3} className={classes.root}>
             <Grid container item direction="column" spacing={2} xs={12}>
-                {classroomData.classrooms[0].classroom_students.filter(e => e.student_first.toUpperCase().includes(searchField.toUpperCase())).map((item,index) => (
-                    <Grid item key={item.student_id}>
-                        <StudentCard testVal={dataCopy.classrooms[0].classroom_students[0].student_first} studentIndex = {index} studentName={item.student_first + " " + item.student_last} schedule={item.schedule} handleChange={handleClassChange}/>
+                {classroomData.filter(classRoom => classRoom.id === testid)[0].students.filter(e => e.firstName.toUpperCase().includes(searchField.toUpperCase())).map((item,index) => (
+                    <Grid item key={item.id}>
+                        <StudentCard studentIndex = {index} studentName={item.lastName + " " + item.firstName} schedule={item.schedule} handleChange={handleClassChange}/>
                     </Grid>
                 ))}
             </Grid>

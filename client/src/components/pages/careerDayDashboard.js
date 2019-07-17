@@ -13,7 +13,8 @@ import Paper from '@material-ui/core/Paper';
 import PreferenceBarChart from '../atoms/preferenceBarChart/PreferenceBarChart'
 import CareerDayStats from '../atoms/careerDayStats/CareerDayStats';
 import CareerDayTable from '../atoms/careerDayTable/CareerDayTable';
-let careerDay = require('../../CareerDay.json')
+
+let careerDay = require('../../careerDay.json')
 let regClasses = require('../../registeringClasses.json')
 /* 
     Material-UI's dashboard example was used for reference, no need to reinvent the wheel

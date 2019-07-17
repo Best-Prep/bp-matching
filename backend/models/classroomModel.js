@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const RegisteringClass = mongoose.model('RegisteringClasses', new mongoose.Schema({
     "id": String, //Master Id
-    "careerDayId": String,
+    "careerDayId": String, //References CareerDay Master Id
     "school": {
         "_id": false,
         "id": String, //Reference to School Master Id

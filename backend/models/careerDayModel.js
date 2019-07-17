@@ -10,6 +10,17 @@ const CareerDay = mongoose.model('CareerDays', new mongoose.Schema({
     "subjects": [{
         "id": String, //Master Id
         "name": String
+    }],
+    "sessions": [{
+        "id": String,
+        "name": String,
+        "seats": Number,
+        "period": Number,
+        "assignedStudents": [{
+            "id": String, //Reference to Student Master Id from classroom
+            "firstName": String,
+            "lastName": String
+        }]
     }]
 }))
 
