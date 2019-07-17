@@ -7,6 +7,7 @@ import Header from './components/organisms/header/header';
 import Import from './components/pages/import';
 import Override from './components/pages/override';
 import ViewAll  from './components/pages/viewAll';
+import homePage from './components/pages/homePage';
 import careerDayDashboard from './components/pages/careerDayDashboard';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -49,6 +50,7 @@ function App() {
           <Route path="/Override" exact component={Override} />
           <Route path="/ViewAll" exact component={ViewAll} />
           <Route path="/dashboard" exact component={careerDayDashboard} />
+          <Route path="/homePage" exact component={homePage} />
         </div>
       </Router>
     </ThemeProvider>
