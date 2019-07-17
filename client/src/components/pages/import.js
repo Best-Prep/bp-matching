@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 //Utilities
 import Swal from 'sweetalert2'
 import axios from 'axios'
+
 import { makeStyles } from '@material-ui/core/styles';
 import { withTheme } from '@material-ui/styles';
 //Components -- Material-UI
@@ -13,6 +14,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import Header from '../organisms/header/header';
 //Custom Components
 import Step1 from '../organisms/steps/step1'
 import Step2 from '../organisms/steps/step2'
@@ -140,6 +142,9 @@ const Import = (props) => {
     const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
     return (
         <Container className={classes.container}>
+             <div style={{fontWeight: 'bold'}}>
+                    <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+                    </div>
             <Grid container className={classes.root} spacing={3}>
                 <Grid item xs={12}>
                     <div style={{minHeight: '70vh'}}>
