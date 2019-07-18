@@ -141,10 +141,9 @@ const Import = (props) => {
     const classes = UseStyles();
     const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
     return (
+        <div style={{fontWeight: 'bold'}}>
+        <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
         <Container className={classes.container}>
-             <div style={{fontWeight: 'bold'}}>
-                    <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
-                    </div>
             <Grid container className={classes.root} spacing={3}>
                 <Grid item xs={12}>
                     <div style={{minHeight: '70vh'}}>
@@ -201,6 +200,7 @@ const Import = (props) => {
                 </Grid>
             </Grid>
         </Container>
+        </div>
     )
 }
 
