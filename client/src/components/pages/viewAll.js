@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Header from '../organisms/header/header';
 import ClassroomCard from '../organisms/classroom_card/ClassroomCard';
 import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
@@ -27,6 +28,10 @@ const handleChange = (event) => {
 }
     return (
         <div>
+
+<div style={{fontWeight: 'bold'}}>
+      <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+      </div>
           <h1>Select a Classroom</h1>
 
           <div class="container">

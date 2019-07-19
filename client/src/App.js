@@ -42,10 +42,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
+      {/* <div style={{fontWeight: 'bold'}}>
+            <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+          </div> */}
         <div className="App"> 
-          <div style={{fontWeight: 'bold'}}>
-            <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
-          </div>
           <Route path="/import" exact component={Import} />
           <Route path="/Override" exact component={Override} />
           <Route path="/ViewAll" exact component={ViewAll} />
