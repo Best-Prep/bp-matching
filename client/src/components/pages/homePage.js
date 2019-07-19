@@ -9,10 +9,6 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import TextField from '@material-ui/core/TextField'
 
-
-
-
-
 const UseStyles = makeStyles(theme => ({
     root: {
       display: 'flex',
@@ -59,7 +55,7 @@ const UseStyles = makeStyles(theme => ({
     }
   }));
 
- const homePage = () => {
+ export default function homePage() {
     const classes = UseStyles();
      return (
 
@@ -71,6 +67,7 @@ const UseStyles = makeStyles(theme => ({
                 <Paper className={classes.fixedHeightPaper}>
                
                     <img src={require('./bestprepLogo.png')} alt="bestPrep" style={{height: 180, width: 380, paddingRight: 50}}/>
+
 {/* 
                     <div> <form><p>Login: <input type="text"></input></p></form></div> */}
                     <form className={classes.container} noValidate autoComplete="off">
@@ -92,9 +89,8 @@ const UseStyles = makeStyles(theme => ({
              </Container>
              </div>
          
-     )
+     );
  }
  
- export default homePage
  
  
