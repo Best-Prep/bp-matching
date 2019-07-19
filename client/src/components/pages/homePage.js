@@ -14,6 +14,12 @@ import Icon from '@material-ui/core/Icon';
 import SaveIcon from '@material-ui/icons/Save';
 import IconButton from '@material-ui/core/IconButton';
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 3a5ec8bc3fa9eaa74b0f89b381ce411722fb13ff
 const UseStyles = makeStyles(theme => ({
     root: {
       display: 'flex',
@@ -53,13 +59,15 @@ const UseStyles = makeStyles(theme => ({
     const classes = UseStyles();
      return (
 
-        <div style ={{marginLeft: 300, marginRight:300, marginTop: 100}}>
+        <div style ={{marginLeft: 390, marginRight:390, marginTop: 100}}>
         <Container maxWidth="lg" className={classes.container}>
             
             {/* Chart */}
       
                 <Paper className={classes.fixedHeightPaper}>
-                    <div style={{fontSize: 30}}><h1>BestPrep</h1></div>
+               
+                    <img src={require('./bestprepLogo.png')} alt="bestPrep" style={{height: 180, width: 380, paddingRight: 50}}/>
+
                     <div> <form><p>Login: <input type="text"></input></p></form></div>
                     <Button variant="contained" color="primary" className={classes.button}>
                     Get Started
