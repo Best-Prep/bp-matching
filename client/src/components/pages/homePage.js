@@ -7,12 +7,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import clsx from 'clsx';
 import Button from '@material-ui/core/Button';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+
 import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
 import Icon from '@material-ui/core/Icon';
 import SaveIcon from '@material-ui/icons/Save';
 import IconButton from '@material-ui/core/IconButton';
-
-
 
 const UseStyles = makeStyles(theme => ({
     root: {
@@ -49,7 +49,7 @@ const UseStyles = makeStyles(theme => ({
       }
   }));
 
- const homePage = () => {
+ export default function homePage() {
     const classes = UseStyles();
      return (
 
@@ -61,20 +61,17 @@ const UseStyles = makeStyles(theme => ({
                 <Paper className={classes.fixedHeightPaper}>
                     <div style={{fontSize: 30}}><h1>BestPrep</h1></div>
                     <div> <form><p>Login: <input type="text"></input></p></form></div>
-                    <div><Button variant="contained" color="primary" className={classes.button}>
-                    Submit
-                    <Icon className={classes.rightIcon}> <i class="material-icons">
-                    arrow_right_alt
-                    </i></Icon>
-                    </Button></div>
+                    <Button variant="contained" color="primary" className={classes.button}>
+                    Get Started
+                <Icon className={classes.rightIcon} />
+            </Button>
              </Paper>
     
              </Container>
              </div>
          
-     )
+     );
  }
  
- export default homePage
  
  
