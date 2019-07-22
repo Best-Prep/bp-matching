@@ -12,8 +12,8 @@ const CareerDay = mongoose.model('CareerDays', new mongoose.Schema({
         "name": String
     }],
     "sessions": [{
-        "id": String,
-        "name": String,
+        "id": String, //Master Id
+        "name": String, //Subject Name
         "seats": Number,
         "period": Number,
         "assignedStudents": [{
