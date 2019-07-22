@@ -9,11 +9,12 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
 import { NavLink } from 'react-router-dom';
+import { Container } from "@material-ui/core";
 
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345
+    maxWidth: '100%'
   },
   media: {
     height: 140
@@ -25,39 +26,26 @@ const ClassroomCard = (props) => {
   const classes = useStyles();
 
   return (
-
-    <div className={classes.root}>
-   <div style={{marginLeft:90, marginTop:50}}>
-          
-     <Grid
-     container
-     direction="rows"
-     alignItems="center"
-     >
-   
-   <Grid item>
+   <Grid item xs={3}>
      <Card className={classes.card}>
-      <CardActionArea>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h3">
-            {props.teacherName}
-          </Typography>
-          <Typography gutterBottom variant="h7" component="h3">
-            {props.schoolName}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button><NavLink to="/Override" style={{ textDecoration: 'none' }}>View Class Schedule</NavLink></Button>
-     
-
-        {/* <Button size="small" color="primary" onClick={this.routeChange}>View Class Schedule</Button> */}
-      </CardActions>
-    </Card>
-    </Grid>
-    </Grid>
-    </div>
-    </div>
+        <CardActionArea>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h3">
+              {props.teacherName}
+            </Typography>
+            <Typography gutterBottom variant="h7" component="h3">
+              {props.schoolName}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Container>
+            <Button><NavLink to="/Override" style={{ textDecoration: 'none' }}>View Class Schedule</NavLink></Button>
+            {/* <Button size="small" color="primary" onClick={this.routeChange}>View Class Schedule</Button> */}
+          </Container>
+          </CardActions>
+        </Card>
+      </Grid>
   );
 }
 export default ClassroomCard

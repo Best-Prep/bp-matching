@@ -54,7 +54,7 @@ const Override = (props) => {
        <div>
 
       <div style={{fontWeight: 'bold'}}>
-      <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+      <Header linkTo='./' headName='BestPrep' style={{fontWeight: 'bold'}}/>
       </div>
         <h2>John Doe's Class Schedule</h2>
         {/* <h4>Wayzata High School</h4> */}
