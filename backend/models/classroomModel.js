@@ -25,6 +25,17 @@ const RegisteringClass = mongoose.model('RegisteringClasses', new mongoose.Schem
             "id": String, //Reference to Session Master Id
             "name": String //Name of the subject
         }]
+    }],
+    "sessions": [{
+        "id": String, //Reference to Master Session Id
+        "name": String,
+        "seats": String,
+        "assignedStudents": [{
+            "id": String, //Reference to Student Master Id from classroom
+            "firstName": String,
+            "lastName": String
+        }]
     }]
 }));
+
 module.exports = RegisteringClass;
