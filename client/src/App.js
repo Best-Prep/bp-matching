@@ -46,11 +46,11 @@ function App() {
             <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
           </div> */}
         <div className="App"> 
+          <Route path="/" exact component={homePage} />
           <Route path="/import" exact component={Import} />
           <Route path="/Override" exact component={Override} />
           <Route path="/ViewAll" exact component={ViewAll} />
           <Route path="/dashboard" exact component={careerDayDashboard} />
-          <Route path="/homePage" exact component={homePage} />
         </div>
       </Router>
     </ThemeProvider>
