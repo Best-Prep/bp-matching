@@ -47,10 +47,10 @@ function App() {
           </div> */}
         <div className="App"> 
           <Route path="/" exact component={homePage} />
+          <Route path="/dashboard" exact component={careerDayDashboard} />
           <Route path="/import" exact component={Import} />
           <Route path="/Override" exact component={Override} />
           <Route path="/ViewAll" exact component={ViewAll} />
-          <Route path="/dashboard" exact component={careerDayDashboard} />
         </div>
       </Router>
     </ThemeProvider>

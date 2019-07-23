@@ -13,6 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import PreferenceBarChart from '../atoms/preferenceBarChart/PreferenceBarChart'
 import CareerDayStats from '../atoms/careerDayStats/CareerDayStats';
 import CareerDayTable from '../atoms/careerDayTable/CareerDayTable';
+import Header from '../organisms/header/header';
 
 let careerDay = require('../../careerDay.json')
 let regClasses = require('../../registeringClasses.json')
@@ -67,6 +68,10 @@ const careerDayDashboard = () => {
     prepData()
     const classes = UseStyles();
     return (
+    <div>
+    <div style={{fontWeight: 'bold'}}>
+      <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+      </div>
         <Container maxWidth="lg" className={classes.container}>
             <Grid container spacing={3}>
                 {/* Chart */}
@@ -91,6 +96,7 @@ const careerDayDashboard = () => {
                 </Grid>
             </Grid>
         </Container>
+        </div>
     )
 }
 
