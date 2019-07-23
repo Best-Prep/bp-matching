@@ -34,17 +34,10 @@ const handleChange = (event) => {
     return (
         <div>
 
-<<<<<<< HEAD
 <div style={{fontWeight: 'bold'}}>
       <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
       </div>
           <h1>Select a Classroom</h1>
-=======
-          <div style={{fontWeight: 'bold'}}>
-                <Header linkTo='./' headName='BestPrep' style={{fontWeight: 'bold'}}/>
-                </div>
-                    <h1>Select a Classroom</h1>
->>>>>>> b4a8e496823dc9296f90d703af98df57d1d3f229
 
                     <div className="container">
                       <SearchBar handleChange = {handleChange}/>
