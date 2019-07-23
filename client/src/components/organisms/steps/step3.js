@@ -50,7 +50,7 @@ const Step3 = (props) => {
                                 name="seats"
                                 label="Seats"
                                 className={classes.textField}
-                                value={registeringClass.sessions[0].seats}
+                                value={0}
                                 onChange={props.handleChange}
                                 margin=""
                             />
