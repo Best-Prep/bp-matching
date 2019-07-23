@@ -30,7 +30,7 @@ const handleChange = (event) => {
         <div>
 
 <div style={{fontWeight: 'bold'}}>
-      <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+      <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
       </div>
           <h1>Select a Classroom</h1>
 

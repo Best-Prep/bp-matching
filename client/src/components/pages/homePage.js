@@ -34,7 +34,6 @@ const UseStyles = makeStyles(theme => ({
     fixedHeightPaper:{
       padding: theme.spacing(4),
       display: 'flex',
-
       flexDirection: 'column',
     },
     rightIcon: {
@@ -69,7 +68,7 @@ const UseStyles = makeStyles(theme => ({
             
             {/* Chart */}
       
-                <Paper maxWidth="sm" className={classes.fixedHeightPaper}>
+                <Paper maxWidth="sm" className={classes.fixedHeightPaper} style={{marginLeft: 15}}>
                
                     <img src={require('./bestprepLogo.png')} alt="bestPrep" style={{height: 180, width: 380, paddingLeft: 35, position: 'center'}}/>
 
