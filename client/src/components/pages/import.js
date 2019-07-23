@@ -142,7 +142,11 @@ const Import = (props) => {
     const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
     return (
         <div style={{fontWeight: 'bold'}}>
+<<<<<<< HEAD
         <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+=======
+        <Header linkTo='./' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+>>>>>>> b4a8e496823dc9296f90d703af98df57d1d3f229
         <Container className={classes.container}>
             <Grid container className={classes.root} spacing={3}>
                 <Grid item xs={12}>

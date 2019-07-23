@@ -56,7 +56,7 @@ const Override = (props) => {
        <div>
 
       <div style={{fontWeight: 'bold'}}>
-      <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+      <Header linkTo='./' headName='BestPrep' style={{fontWeight: 'bold'}}/>
       </div>
         <h2>John Doe's Class Schedule</h2>
         {/* <h4>Wayzata High School</h4> */}
@@ -69,7 +69,7 @@ const Override = (props) => {
         <div style={{marginTop:20}}>
         <Grid container spacing={3} className={classes.root}>
             <Grid container item direction="column" spacing={2} xs={12}>
-                {ClassroomData[0].students.filter(e => e.firstName.toUpperCase().includes(searchField.toUpperCase())).map((item,index) => (
+                {ClassroomData[0.].students.filter(e => e.firstName.toUpperCase().includes(searchField.toUpperCase())).map((item,index) => (
                     <Grid item key={item.id}>
                         <StudentCard studentIndex = {index} studentName={item.firstName + " " + item.lastName} schedule={item.schedule} handleChange={handleClassChange}/>
                     </Grid>
