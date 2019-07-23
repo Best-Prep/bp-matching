@@ -10,6 +10,7 @@ const NavBar = () => {
     return (
         <List component="nav">
             <ListItem component="div">
+                <NavBarItem label="Dashboard" linkTo="/careerDayDashboard"/>
                 <NavBarItem label="Import" linkTo="/import"/>
                 <NavBarItem label="View All" linkTo="/ViewAll"/>
                 <NavBarItem label="Override" linkTo="/Override"/>

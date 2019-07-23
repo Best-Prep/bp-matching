@@ -10,10 +10,14 @@ import SearchBar from '../organisms/classroom_card/SearchBar';
 let data = require('../../careerDay.json') 
 let registeringClasses = require('../../registeringClasses.json') 
 registeringClasses = registeringClasses.filter(registeringClass => registeringClass.careerDayId === data.id)
-const useStyles = makeStyles(theme => ({
+const UseStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
-    }
+    },
+    rootGrid:{
+      direction: "row",
+      justify:"center",
+    },
   }));
 
 const ViewAll = (props) => {
@@ -26,29 +30,30 @@ let dataCopy = JSON.parse(JSON.stringify(classroomData));
 const handleChange = (event) => {
   setsearchField(event.target.value)
 }
+    const classes = UseStyles()
     return (
         <div>
 
 <div style={{fontWeight: 'bold'}}>
-      <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+      <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
       </div>
           <h1>Select a Classroom</h1>
 
-          <div class="container">
-            <SearchBar handleChange = {handleChange}/>
-            {/* <input type="text" className="input" placeholder="Search..." />
-              <ul>
-              </ul> */}
-          </div>
-          <div style={{marginBottom:70}}>
-          <Grid container alignItems="left"> 
-            {dataCopy.filter(e => e.school.name.toUpperCase().includes(searchField.toUpperCase())||  (e.teacher.firstName + e.teacher.lastName).toUpperCase().includes(searchField.toUpperCase()) ).map((item, index) => {
-              return (
-                <ClassroomCard teacherName={item.teacher.firstName + " " + item.teacher.lastName} schoolName={item.school.name}>xs=3</ClassroomCard>
-              )
-            })}
-           </Grid>
-           </div>
+                    <div className="container">
+                      <SearchBar handleChange = {handleChange}/>
+                      {/* <input type="text" className="input" placeholder="Search..." />
+                        <ul>
+                        </ul> */}
+                    </div>
+                    <div style={{marginBottom:70, width: '80%', margin:'auto'}}>
+                    <Grid container spacing={6} className={classes.rootGrid}> 
+                      {dataCopy.filter(e => e.school.name.toUpperCase().includes(searchField.toUpperCase())||  (e.teacher.firstName + e.teacher.lastName).toUpperCase().includes(searchField.toUpperCase()) ).map((item, index) => {
+                        return (
+                          <ClassroomCard teacherName={item.teacher.firstName + " " + item.teacher.lastName} schoolName={item.school.name} key={item.id}/>
+                        )
+                      })}
+                    </Grid>
+            </div>
         </div>
         
             

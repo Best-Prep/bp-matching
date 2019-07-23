@@ -8,7 +8,9 @@ import SearchBar from '../organisms/classroom_card/SearchBar';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
-let data = require('../../careerDay.json') //TODO: Get rid of dummy data
+let data = require('../../careerDay.json') 
+let ClassroomData = require('../../registeringClasses.json')
+//TODO: Get rid of dummy data
 const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
@@ -54,7 +56,7 @@ const Override = (props) => {
        <div>
 
       <div style={{fontWeight: 'bold'}}>
-      <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+      <Header linkTo='./' headName='BestPrep' style={{fontWeight: 'bold'}}/>
       </div>
         <h2>John Doe's Class Schedule</h2>
         {/* <h4>Wayzata High School</h4> */}
@@ -67,9 +69,9 @@ const Override = (props) => {
         <div style={{marginTop:20}}>
         <Grid container spacing={3} className={classes.root}>
             <Grid container item direction="column" spacing={2} xs={12}>
-                {classroomData.classrooms[0].classroom_students.filter(e => e.student_first.toUpperCase().includes(searchField.toUpperCase())).map((item,index) => (
-                    <Grid item key={item.student_id}>
-                        <StudentCard testVal={dataCopy.classrooms[0].classroom_students[0].student_first} studentIndex = {index} studentName={item.student_first + " " + item.student_last} schedule={item.schedule} handleChange={handleClassChange}/>
+                {ClassroomData[0.].students.filter(e => e.firstName.toUpperCase().includes(searchField.toUpperCase())).map((item,index) => (
+                    <Grid item key={item.id}>
+                        <StudentCard studentIndex = {index} studentName={item.firstName + " " + item.lastName} schedule={item.schedule} handleChange={handleClassChange}/>
                     </Grid>
                 ))}
             </Grid>

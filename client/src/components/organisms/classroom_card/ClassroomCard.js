@@ -13,7 +13,9 @@ import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345
+    maxWidth: '80%',
+    maxHeight: '40%',
+    alignItems: 'center'
   },
   media: {
     height: 140

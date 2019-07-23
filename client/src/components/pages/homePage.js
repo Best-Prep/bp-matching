@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
@@ -9,9 +10,10 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import TextField from '@material-ui/core/TextField'
 
+const imgUrl=require('./background-pic.jpg')
 const UseStyles = makeStyles(theme => ({
     root: {
-      display: 'flex',
+       display: 'flex',
     },
     button: {
         margin: theme.spacing(1),
@@ -19,16 +21,17 @@ const UseStyles = makeStyles(theme => ({
     container: {
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(4),
+      
     },
     paper: {
       padding: theme.spacing(2),
       display: 'flex',
       overflow: 'auto',
-      height: 150,
+
+      marginLeft: 300,
       flexDirection: 'column',
     },
     fixedHeightPaper:{
-    //   height: 200,
       padding: theme.spacing(4),
       display: 'flex',
       flexDirection: 'column',
@@ -59,14 +62,15 @@ const UseStyles = makeStyles(theme => ({
     const classes = UseStyles();
      return (
 
-        <div style ={{marginLeft: 390, marginRight:390, marginTop: 100}}>
-        <Container maxWidth="lg" className={classes.container}>
+        <div style = {{backgroundImage: "url(" +imgUrl +")", height: '100vh', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
+        {/* // <div style ={{marginLeft: 390, marginRight:390, marginTop: 100}}> */}
+        <Container maxWidth="sm" className={classes.container}>
             
             {/* Chart */}
       
-                <Paper className={classes.fixedHeightPaper}>
+                <Paper maxWidth="sm" className={classes.fixedHeightPaper} style={{marginLeft: 15}}>
                
-                    <img src={require('./bestprepLogo.png')} alt="bestPrep" style={{height: 180, width: 380, paddingRight: 50}}/>
+                    <img src={require('./bestprepLogo.png')} alt="bestPrep" style={{height: 180, width: 380, paddingLeft: 35, position: 'center'}}/>
 
 {/* 
                     <div> <form><p>Login: <input type="text"></input></p></form></div> */}
@@ -79,15 +83,14 @@ const UseStyles = makeStyles(theme => ({
                     />
                     </form>
                     <div><Button variant="contained" color="primary" className={classes.button}>
-                    Submit
-                    <Icon className={classes.rightIcon}> <i class="material-icons">
-                    arrow_right_alt
-                    </i></Icon>
+                    <Link style={{ textDecoration: 'none', color: 'white' }} to = "../import">Submit</Link>
+                   
+                 
                     </Button></div>
              </Paper>
     
              </Container>
-             </div>
+            </div>
          
      );
  }

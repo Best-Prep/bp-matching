@@ -171,7 +171,7 @@ const Import = (props) => {
     const steps = ['Add link to spreadsheet', 'Add Subjects and Seats', 'Assign Seats to Classrooms', 'Finish'];
     return (
         <div style={{fontWeight: 'bold'}}>
-        <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
+        <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
         <Container className={classes.container}>
             <Grid container className={classes.root} spacing={3}>
                 <Grid item xs={12}>
