@@ -29,6 +29,7 @@ const RegisteringClass = mongoose.model('RegisteringClasses', new mongoose.Schem
     "sessions": [{
         "id": String, //Reference to Master Session Id
         "name": String,
+        "period": Number,
         "seats": String,
         "assignedStudents": [{
             "id": String, //Reference to Student Master Id from classroom

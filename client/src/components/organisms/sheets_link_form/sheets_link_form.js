@@ -9,6 +9,9 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(1),
       // flexWrap: 'wrap',
     },
+    textField:{
+      margin: theme.spacing(2)
+    },
     formControl: {
       minWidth: 120,
     },
@@ -16,19 +19,49 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(1.5),
     },
   }));
+var tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1)
+var dd = String(tomorrow.getDate()).padStart(2, '0');
+var mm = String(tomorrow.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = tomorrow.getFullYear();
+tomorrow = yyyy + '-' + mm + '-' + dd;
+let careerDayDate = tomorrow
 const SheetForm = (props) => {
     const classes = useStyles();
     return (
       <div>
+            <TextField
+              id="date"
+              label="Date of Career Day"
+              type="date"
+              defaultValue={tomorrow}
+              onChange={date => careerDayDate = date}
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
             <TextField
                 name="sheetsLink"
                 label="Link to spreadsheet"
                 className={classes.textField}
                 value={props.sheetLink}
                 onChange={props.handleChange}
-                margin=""
+                InputLabelProps={{
+                  shrink: true,
+                }}
             />
-            <Button variant="contained" color="primary" className={classes.button} onClick={props.handleSubmit}>
+            <TextField
+              id="period"
+              label="Periods"
+              type="number"
+              defaultValue={0}
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <Button variant="contained" color="primary" className={classes.button} onClick={e => props.handleSubmit(careerDayDate)}>
               Submit
             </Button>
       </div>

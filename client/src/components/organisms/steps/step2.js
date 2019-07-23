@@ -8,7 +8,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 
 //TODO: styling and also create a local variable to hold the values of the subject cards, that way the screen doesnt have to rerender every time
-
+//TODO: Add uniq id to subject when new one is added
 const UseStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(4),

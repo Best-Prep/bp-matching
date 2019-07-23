@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const CareerDay = mongoose.model('CareerDays', new mongoose.Schema({
     "id": String,
     "date": Date,
+    "numPeriods": Number,
     "schools": [{
         "id": String, //Reference to School Master Id
         "name": String

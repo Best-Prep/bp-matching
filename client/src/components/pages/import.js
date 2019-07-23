@@ -18,6 +18,7 @@ import Header from '../organisms/header/header';
 //Custom Components
 import Step1 from '../organisms/steps/step1'
 import Step2 from '../organisms/steps/step2'
+import Step3 from '../organisms/steps/step3';
 
 const UseStyles = makeStyles(() => ({
     root: {
@@ -37,6 +38,9 @@ const UseStyles = makeStyles(() => ({
 
 const Import = (props) => {
     const [sheetLink, setSheetLink] = useState("")
+    const [careerDay, setCareerDay] = useState()
+    const [registeringClasses, setRegisteringClasses] = useState()
+    const [schools, setSchools] = useState()
     const [subjects, setSubjects] = useState([{
         "name": "",
         "seats": ""   
@@ -48,23 +52,39 @@ const Import = (props) => {
     }
     
     //Handles the sumbission of the text link, this gets called when the submit button is clicked.
-    const handleSubmit = (event) => {
+    const handleSubmit = (date,periods) => {
         //TODO: add functionality to actually submit to the express server / mongo
         /*Axios is a promised based HTTP client for node, this makes a post request to the backend
          express server and provides the sheet link as part of the request*/
-        axios.post('/api/spreadsheets/importSheet', {
+        Swal.fire({
+            title: 'Loading',
+            text: "Contacting the server to import your sheet",
+            onBeforeOpen: () => {
+                Swal.showLoading()
+            },
+            footer: 'Please be patient, this could take up to a minute'
+        })
+        axios.post('api/import/getSheetData', {
             sheetLink: sheetLink,
-          })
+            numPeriods: periods,
+            careerDayDate: date
+          },{headers: {
+            'Content-Type': 'application/json',
+        }})
           /*This function is called after the request has received a response,
            it fires the alert announcing the success of the import */ 
           .then(function (response) {
+            setCareerDay(response.data.careerDay)
+            setRegisteringClasses(response.data.registeringClasses)
+            setSchools(response.data.schools)
+            setSubjects(response.data.careerDay.subjects)
             Swal.fire({
                 type: 'success',
                 title: 'Success!',
-                text: 'The spreadsheet you have linked has been submitted:  ' + response.data.id,
-                footer: 'Note: this is a demo, no upload has actually taken place',
+                text: response.data.message,
+                footer: 'Note: This has only imported the data from the sheet, none of this data will be saved until you complete all of the import steps',
                 onClose: () => {
-                    props.history.push('/Override')
+                    handleNext()
                 }
             })
           })
@@ -103,7 +123,7 @@ const Import = (props) => {
                         sheetsLink={sheetLink}
                         handleSubmit={handleSubmit}
                         instructionHeader="Step 1"
-                        instructions="Paste the link to the Career Day Google Sheet. Then click Submit."
+                        instructions="Choose the date that the Career Day will take place. Paste the link to the Google-Sheet where the form responses are stored. Input the number of periods at this Career Day."
                     />
                 )
             case 1:
@@ -112,14 +132,23 @@ const Import = (props) => {
                             subjects={subjects}
                             instructionHeader="Step 2"
                             instructions=
-                                "Add the Subjects that will be present at this Career Day, then add the total number of seats at the career day for the subject"
+                                "Add the Subjects that willschools be present at this Career Day, then add the total number of seats at the career day for the subject"
                             handleChange={handleStep2Change}
                             addSubject={handleAddSubject}
                             removeSubject={handleRemoveSubject}
                         />
                 ) ;
             case 2:
-                return 'StepComponent1';
+                let registeringClasses1 = require('../../registeringClasses.json')
+                let careerDay1 = require('../../careerDay.json')
+                return (
+                    <Step3 
+                        careerDay={careerDay1} 
+                        registeringClasses={registeringClasses1}
+                        instructionHeader="Step 3"
+                        instructions="Expand each subject below, and input the number of seats you would like to give to each registering classroom"
+                    />
+                );
             default:
                 return 'Error, unknown step'
         }
@@ -139,7 +168,7 @@ const Import = (props) => {
     }
     //TODO: fix grid
     const classes = UseStyles();
-    const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+    const steps = ['Add link to spreadsheet', 'Add Subjects and Seats', 'Assign Seats to Classrooms', 'Finish'];
     return (
         <div style={{fontWeight: 'bold'}}>
         <Header linkTo='./homePage' headName='BestPrep' style={{fontWeight: 'bold'}}/>
@@ -159,6 +188,7 @@ const Import = (props) => {
                     <div>
                         {activeStep === steps.length - 1? (
                             <div>
+                                {careerDay.date}
                                 <Typography className={classes.instructions}>
                                     You have completed every step! Click submit to complete the import of your Spreadsheet.
                                 </Typography>
