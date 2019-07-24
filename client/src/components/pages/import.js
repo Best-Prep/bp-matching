@@ -141,7 +141,7 @@ const Import = (props) => {
                         sheetsLink={sheetLink}
                         handleSubmit={handleSubmit}
                         instructionHeader="Step 1"
-                        instructions="Choose the date that the Career Day will take place. Paste the link to the Google-Sheet where the form responses are stored. Input the number of periods at this Career Day."
+                        instructions="Choose the date that the Career Day will take place. Paste the link to the Google-Sheet where the form responses are stored. Then input the number of periods at this Career Day."
                     />
                 )
             case 1:
@@ -149,7 +149,8 @@ const Import = (props) => {
                         <Step2
                             subjects={subjects}
                             instructionHeader="Step 2"
-                            instructions="Add the Subjects that willschools be present at this Career Day, then add the total number of seats at the career day for the subject"
+                            instructions=
+                                "Add the names of the career breakout sessions that will be present at this Career Day, then add the total number of seats at the Career Day for the session"
                             handleChange={handleStep2Change}
                             addSubject={handleAddSubject}
                             removeSubject={handleRemoveSubject}
@@ -163,8 +164,7 @@ const Import = (props) => {
                         careerDay={careerDay} 
                         registeringClasses={registeringClasses}
                         instructionHeader="Step 3"
-                        handleChange={handleStep3}
-                        instructions="Expand each subject below, and input the number of seats you would like to give to each registering classroom"
+                        instructions="Expand each session below, then enter the number of seats you would like to give to each registering classroom"
                     />
                 );
             default:

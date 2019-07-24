@@ -53,7 +53,6 @@ const Step3 = (props) => {
                                 className={classes.textField}
                                 value={registeringClass.sessions[registeringClass.sessions.findIndex(session => session.id === subject.id)].seats}
                                 onChange={e => props.handleChange(e,subject.id,registeringClass.id)}
-                                margin=""
                             />
                         </>
                     )
