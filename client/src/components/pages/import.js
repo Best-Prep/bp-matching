@@ -20,6 +20,8 @@ import Step1 from '../organisms/steps/step1'
 import Step2 from '../organisms/steps/step2'
 import Step3 from '../organisms/steps/step3';
 
+//Note: These handlechange functions could probably be optimized and condensed, but I do not know react well enough to do this right now
+
 const UseStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
@@ -40,7 +42,8 @@ const Import = (props) => {
     const [sheetLink, setSheetLink] = useState("")
     const [careerDay, setCareerDay] = useState()
     const [registeringClasses, setRegisteringClasses] = useState()
-    const [schools, setSchools] = useState()
+    const [schools, setSchools] = useState();
+    const [periods, setPeriods] = useState(0);
     const [subjects, setSubjects] = useState([{
         "name": "",
         "seats": ""   
@@ -48,11 +51,15 @@ const Import = (props) => {
     const [activeStep, setActiveStep] = useState(0)
     //Handles the change of the sheet link text field
     const handleChange = event => {
-        setSheetLink(event.target.value);
+        if(event.target.id === "period"){
+            setPeriods(event.target.value)
+        }else{
+            setSheetLink(event.target.value);
+        }
     }
     
     //Handles the sumbission of the text link, this gets called when the submit button is clicked.
-    const handleSubmit = (date,periods) => {
+    const handleSubmit = (date) => {
         //TODO: add functionality to actually submit to the express server / mongo
         /*Axios is a promised based HTTP client for node, this makes a post request to the backend
          express server and provides the sheet link as part of the request*/
@@ -113,6 +120,17 @@ const Import = (props) => {
         subjectsCopy.splice(index,1)
         setSubjects(subjectsCopy)
     }
+    const handleStep3 = (event, subjectId, classRoomId) => {
+        let classroomCopy = [...registeringClasses];
+        let careerDayCopy = {...careerDay}
+        let classIndex = classroomCopy.findIndex(registeringClass => registeringClass.id === classRoomId)
+        let sessionsCopy = classroomCopy[classIndex].sessions
+        let sessionIndex = sessionsCopy.findIndex(session => session.id === subjectId)
+        classroomCopy[classIndex].sessions[sessionIndex].seats = event.target.value
+        careerDayCopy.sessions[sessionIndex].seats = event.target.value
+        console.log(careerDayCopy.sessions[sessionIndex].seats)
+        setCareerDay(careerDayCopy)
+    }
 
     const getStepContent = (step) => {
         switch (step) {
@@ -131,8 +149,7 @@ const Import = (props) => {
                         <Step2
                             subjects={subjects}
                             instructionHeader="Step 2"
-                            instructions=
-                                "Add the Subjects that willschools be present at this Career Day, then add the total number of seats at the career day for the subject"
+                            instructions="Add the Subjects that willschools be present at this Career Day, then add the total number of seats at the career day for the subject"
                             handleChange={handleStep2Change}
                             addSubject={handleAddSubject}
                             removeSubject={handleRemoveSubject}
@@ -143,9 +160,10 @@ const Import = (props) => {
                 let careerDay1 = require('../../careerDay.json')
                 return (
                     <Step3 
-                        careerDay={careerDay1} 
-                        registeringClasses={registeringClasses1}
+                        careerDay={careerDay} 
+                        registeringClasses={registeringClasses}
                         instructionHeader="Step 3"
+                        handleChange={handleStep3}
                         instructions="Expand each subject below, and input the number of seats you would like to give to each registering classroom"
                     />
                 );

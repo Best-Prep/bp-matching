@@ -6,7 +6,7 @@ const step1 = (props) => {
     return (
         <div>
             <StepInstructions headerText={props.instructionHeader} subText={props.instructions}/>
-            <SheetForm handleChange={props.handleChange} sheetsLink={props.sheetLink} handleSubmit={props.handleSubmit}/>
+            <SheetForm handleChange={props.handleChange} sheetsLink={props.sheetLink} periods={props.periods} handleSubmit={props.handleSubmit}/>
         </div>
     )
 }

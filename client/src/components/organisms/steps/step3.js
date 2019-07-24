@@ -49,9 +49,10 @@ const Step3 = (props) => {
                             <TextField
                                 name="seats"
                                 label="Seats"
+                                type="number"
                                 className={classes.textField}
-                                value={registeringClass.sessions[0].seats}
-                                onChange={props.handleChange}
+                                value={registeringClass.sessions[registeringClass.sessions.findIndex(session => session.id === subject.id)].seats}
+                                onChange={e => props.handleChange(e,subject.id,registeringClass.id)}
                                 margin=""
                             />
                         </>
