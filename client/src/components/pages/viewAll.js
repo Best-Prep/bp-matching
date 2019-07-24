@@ -32,7 +32,7 @@ const handleChange = (event) => {
 }
     const classes = UseStyles()
     return (
-        <div>
+        <div> 
 
 <div style={{fontWeight: 'bold'}}>
       <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
