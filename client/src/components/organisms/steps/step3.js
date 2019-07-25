@@ -74,8 +74,8 @@ const Step3 = (props) => {
                         id={"panel" + subject.id + "bh-header"}
                     >
                         <Typography className={classes.heading}>{subject.name}</Typography>
-                        <Typography className={classes.secondaryHeading}>Total Seats: {subject.seats}</Typography>
-                        <Typography className={classes.secondaryHeading}>Available Seats:</Typography>
+                        <Typography className={classes.secondaryHeading}>Total Seats:&nbsp;{subject.seats} </Typography>
+                        <Typography className={classes.secondaryHeading}>&nbsp; &nbsp; Available Seats:&nbsp; </Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                         <Typography>
@@ -86,8 +86,9 @@ const Step3 = (props) => {
             )
         }) }
         </>
-        
+
     )
+
 }
 
 export default Step3

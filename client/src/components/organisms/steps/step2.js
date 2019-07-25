@@ -29,13 +29,9 @@ const step2 = (props) => {
                         seats={subject.seats}
                         index={index}
                         handleChange={props.handleChange}
-                        removeSubject={props.removeSubject}
                     />
                 )
             })}
-            <Button className={classes.button} variant='contained' aria-label="Add Subject" color='primary' onClick={props.addSubject}>
-                <AddIcon />
-            </Button>
         </div>
     )
 }

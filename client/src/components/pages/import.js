@@ -19,6 +19,8 @@ import Header from '../organisms/header/header';
 import Step1 from '../organisms/steps/step1'
 import Step2 from '../organisms/steps/step2'
 import Step3 from '../organisms/steps/step3';
+import Done from '@material-ui/icons/Done';
+
 
 //Note: These handlechange functions could probably be optimized and condensed, but I do not know react well enough to do this right now
 
@@ -32,6 +34,10 @@ const UseStyles = makeStyles(() => ({
     instructions: {
 
     },
+    icon: {
+        width: '10%',
+        height: '10%'
+      },
     container: {
         paddingBottom: '3%',
         paddingTop: '3%'
@@ -207,6 +213,9 @@ const Import = (props) => {
                         {activeStep === steps.length - 1? (
                             <div>
                                 {careerDay.date}
+                                <Container>
+                                <Done className={classes.icon}></Done>
+                                </Container>
                                 <Typography className={classes.instructions}>
                                     You have completed every step! Click submit to complete the import of your Spreadsheet.
                                 </Typography>
@@ -233,6 +242,7 @@ const Import = (props) => {
                                         Back
                                     </Button>
                                     <Button
+                                        disabled={activeStep === 0 || activeStep === 3} 
                                         variant="contained"
                                         color="primary"
                                         onClick={handleNext}
@@ -253,3 +263,5 @@ const Import = (props) => {
 }
 
 export default withTheme(Import);
+
+

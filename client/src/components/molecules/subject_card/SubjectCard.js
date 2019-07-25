@@ -5,7 +5,6 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -35,14 +34,10 @@ const SubjectCard = (props) => {
                     label="Seats"
                     placeholder= "0"
                     value={props.seats}
-                    InputProps={{ inputProps: { type: 'number' } }}
+                    InputProps={{ inputProps: { type: 'number', min:0 } }}
                     onChange={(event) => props.handleChange(event, props.index)}
                     S
                 />
-            <Button variant="contained" color="secondary" className={classes.button} onClick={(event) => props.removeSubject(event, props.index)}>
-                Delete
-                <DeleteIcon className={classes.rightIcon} />
-            </Button>
         </Paper>
     )
 }
