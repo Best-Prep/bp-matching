@@ -9,14 +9,10 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
 import { NavLink } from 'react-router-dom';
-
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles({
-  card: {
-    maxWidth: '80%',
-    maxHeight: '40%',
-    alignItems: 'center'
-  },
+
   media: {
     height: 140
   }
@@ -28,16 +24,8 @@ const ClassroomCard = (props) => {
 
   return (
 
-    <div className={classes.root}>
-   <div style={{marginLeft:90, marginTop:50}}>
-          
-     <Grid
-     container
-     direction="rows"
-     alignItems="center"
-     >
-   
-   <Grid item>
+
+   <Grid item xs={6} md={4} lg={4} xl={3}>
      <Card className={classes.card}>
       <CardActionArea>
         <CardContent>
@@ -50,16 +38,14 @@ const ClassroomCard = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
+        <Container>
         <Button><NavLink to="/Override" style={{ textDecoration: 'none' }}>View Class Schedule</NavLink></Button>
-     
+        </Container>
 
         {/* <Button size="small" color="primary" onClick={this.routeChange}>View Class Schedule</Button> */}
       </CardActions>
     </Card>
     </Grid>
-    </Grid>
-    </div>
-    </div>
   );
 }
 export default ClassroomCard

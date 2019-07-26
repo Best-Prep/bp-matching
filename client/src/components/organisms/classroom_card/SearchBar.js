@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   searchIcon: {
     width: theme.spacing(140),
     height: '100%',
-    position: 'absolute',
+    position: 'relative',
     pointerEvents: 'none',
     display: 'flexcenter',
     alignItems: 'center',
@@ -67,9 +67,9 @@ export default function SearchAppBar(props) {
       
           <div className="searchContainer">
           <div className={classes.search}>
-            <div className={classes.searchIcon}>
+            {/* <div className={classes.searchIcon}>
               <SearchIcon />
-            </div>
+            </div> */}
             <InputBase
               onChange={props.handleChange}
               placeholder="Search…"

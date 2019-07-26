@@ -9,6 +9,9 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import TextField from '@material-ui/core/TextField'
+import SvgIcon from '@material-ui/core/SvgIcon';
+
+import ArrowRightAltRounded from '@material-ui/icons/ArrowRightAltRounded';
 
 const imgUrl=require('./background-pic.jpg')
 const UseStyles = makeStyles(theme => ({
@@ -38,6 +41,7 @@ const UseStyles = makeStyles(theme => ({
     },
     rightIcon: {
         marginLeft: theme.spacing(1),
+        padding:'20%',
       },
     leftIcon: {
         marginRight: theme.spacing(1),
@@ -84,6 +88,7 @@ const UseStyles = makeStyles(theme => ({
                     </form>
                     <div><Button variant="contained" color="primary" className={classes.button}>
                     <Link style={{ textDecoration: 'none', color: 'white' }} to = "../import">Submit</Link>
+                    <ArrowRightAltRounded className={classes.icon} />
                    
                  
                     </Button></div>
