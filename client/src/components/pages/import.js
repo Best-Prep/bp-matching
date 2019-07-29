@@ -63,9 +63,61 @@ const Import = (props) => {
             setSheetLink(event.target.value);
         }
     }
+
+    const handleSubmit = () => {
+        console.log("[CAREERDAY]    " + careerDay)
+        console.log("[REGISTERINGCLASSES]   " + registeringClasses)
+        console.log("[SCHOOLS]     " + schools)
+        Swal.fire({
+            title: 'Loading',
+            text: "Contacting the server to complete your career day import",
+            onBeforeOpen: () => {
+                Swal.showLoading()
+            },
+            footer: 'Please be patient, this could take up to a minute'
+        })
+        axios.post('api/matching', {
+            careerDay: careerDay,
+            registeringClasses: registeringClasses,
+            schools: schools,
+          },{headers: {
+            'Content-Type': 'application/json',
+        }})
+          /*This function is called after the request has received a response,
+           it fires the alert announcing the success of the import */ 
+          .then(function (response) {
+            if (response.status == 200){
+                Swal.fire({
+                    type: 'success',
+                    title: 'Success!',
+                    text: response.data.message,
+                    footer: 'Note: This has only imported the data from the sheet, none of this data will be saved until you complete all of the import steps',
+                    onClose: () => {
+                        handleNext()
+                    }
+                })
+            }else{
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: response.data.message,
+                    footer: '',
+                    onClose: () => {
+                        handleNext()
+                    }
+                })
+            }
+            
+          })
+          //This catches the potential error that the request could encounter
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
+    
     
     //Handles the sumbission of the text link, this gets called when the submit button is clicked.
-    const handleSubmit = (date) => {
+    const handleSheetSubmit = (date) => {
         //TODO: add functionality to actually submit to the express server / mongo
         /*Axios is a promised based HTTP client for node, this makes a post request to the backend
          express server and provides the sheet link as part of the request*/
@@ -106,7 +158,7 @@ const Import = (props) => {
             console.log(error);
           });
     }
-    //This method takes in the step number, and returns the JSX content for that step
+    
     const handleStep2Change = (event, index) => {
         let subjectsCopy = [...subjects]
         subjectsCopy[index][event.target.name] = event.target.value
@@ -132,12 +184,14 @@ const Import = (props) => {
         let classIndex = classroomCopy.findIndex(registeringClass => registeringClass.id === classRoomId)
         let sessionsCopy = classroomCopy[classIndex].sessions
         let sessionIndex = sessionsCopy.findIndex(session => session.id === subjectId)
-        classroomCopy[classIndex].sessions[sessionIndex].seats = event.target.value
-        careerDayCopy.sessions[sessionIndex].seats = event.target.value
-        console.log(careerDayCopy.sessions[sessionIndex].seats)
-        setCareerDay(careerDayCopy)
+        //Makes sure that every session of the subject has its seats value modified.
+        for(let x=0; x<periods ;x++){
+            classroomCopy[classIndex].sessions[sessionIndex+x].seats = event.target.value
+        }
+        console.log(careerDayCopy.sessions)
+        setRegisteringClasses(classroomCopy)
     }
-
+    //This method takes in the step number, and returns the JSX content for that step
     const getStepContent = (step) => {
         switch (step) {
             case 0:
@@ -145,7 +199,7 @@ const Import = (props) => {
                     <Step1
                         handleChange={handleChange}
                         sheetsLink={sheetLink}
-                        handleSubmit={handleSubmit}
+                        handleSubmit={handleSheetSubmit}
                         instructionHeader="Step 1"
                         instructions="Choose the date that the Career Day will take place. Paste the link to the Google-Sheet where the form responses are stored. Then input the number of periods at this Career Day."
                     />
@@ -171,6 +225,7 @@ const Import = (props) => {
                         registeringClasses={registeringClasses}
                         instructionHeader="Step 3"
                         instructions="Expand each session below, then enter the number of seats you would like to give to each registering classroom"
+                        handleChange={handleStep3}
                     />
                 );
             default:
@@ -226,7 +281,12 @@ const Import = (props) => {
                                 >
                                     Back
                                 </Button>
-                                <Button onClick={handleSubmit} className={classes.submitButton}>
+                                <Button 
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={handleSubmit}
+                                    className={classes.button}
+                                >
                                     Submit
                                 </Button>
                             </div>
