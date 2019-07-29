@@ -1,10 +1,12 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import Header from '../organisms/header/header';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import RosterTable from '../molecules/rosterTable/roster_table';
 import Container from '@material-ui/core/Container';
 
 const ExpansionPanel = withStyles({
@@ -57,6 +59,7 @@ export default function CustomizedExpansionPanels() {
 
     return (
         <div>
+        <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
 
         <h1>Class Roster </h1>
         <Container maxWidth="lg">
