@@ -74,7 +74,7 @@ const UseStyles = makeStyles(theme => ({
       
                 <Paper maxWidth="sm" className={classes.fixedHeightPaper} style={{marginLeft: 15}}>
                
-                    <img src={require('./bestprepLogo.png')} alt="bestPrep" style={{height: 180, width: 380, paddingLeft: 35, position: 'center'}}/>
+                    <img src={require('./bestpreplogotagline.png')} alt="bestPrep" style={{height: 180, width: 380, paddingLeft: 35, position: 'center'}}/>
 
 {/* 
                     <div> <form><p>Login: <input type="text"></input></p></form></div> */}

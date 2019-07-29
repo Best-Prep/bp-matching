@@ -36,7 +36,7 @@ const SubjectCard = (props) => {
                     value={props.seats}
                     InputProps={{ inputProps: { type: 'number', min:0 } }}
                     onChange={(event) => props.handleChange(event, props.index)}
-                    S
+                    
                 />
         </Paper>
     )

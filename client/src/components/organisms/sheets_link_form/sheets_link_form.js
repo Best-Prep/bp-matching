@@ -55,11 +55,11 @@ const SheetForm = (props) => {
               id="period"
               label="Periods"
               type="number"
-              defaultValue={0}
+              defaultValue={1}
               value={props.periods}
               className={classes.textField}
               onChange={props.handleChange}
-              InputProps={{ inputProps: { type: 'number', min:0 } }}
+              InputProps={{ inputProps: { type: 'number', min:1 } }}
               InputLabelProps={{
                 shrink: true,
               }}
