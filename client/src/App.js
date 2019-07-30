@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 
 import Header from './components/organisms/header/header';
 import Import from './components/pages/import';
-import Override from './components/pages/override';
-import ViewAll  from './components/pages/viewAll';
+import Roster from './components/pages/roster';
+import Override  from './components/pages/override';
 import homePage from './components/pages/homePage';
 import careerDayDashboard from './components/pages/careerDayDashboard';
 import { ThemeProvider } from '@material-ui/styles';
@@ -49,8 +49,8 @@ function App() {
           <Route path="/" exact component={homePage} />
           <Route path="/dashboard" exact component={careerDayDashboard} />
           <Route path="/import" exact component={Import} />
+          <Route path="/Roster" exact component={Roster} />
           <Route path="/Override" exact component={Override} />
-          <Route path="/ViewAll" exact component={ViewAll} />
         </div>
       </Router>
     </ThemeProvider>

@@ -10,7 +10,6 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import TextField from '@material-ui/core/TextField'
 import SvgIcon from '@material-ui/core/SvgIcon';
-
 import ArrowRightAltRounded from '@material-ui/icons/ArrowRightAltRounded';
 
 const imgUrl=require('./background-pic.jpg')
@@ -24,14 +23,11 @@ const UseStyles = makeStyles(theme => ({
     container: {
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(4),
-      
     },
     paper: {
-      padding: theme.spacing(2),
+      padding: theme.spacing(1),
       display: 'flex',
       overflow: 'auto',
-
-      marginLeft: 300,
       flexDirection: 'column',
     },
     fixedHeightPaper:{
@@ -52,14 +48,10 @@ const UseStyles = makeStyles(theme => ({
     textField: {
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
-        width: 200,
-    },
-    dense: {
-        marginTop: 19,
     },
     menu: {
         width: 200,
-    }
+    },
   }));
 
  export default function homePage() {
@@ -72,12 +64,11 @@ const UseStyles = makeStyles(theme => ({
             
             {/* Chart */}
       
-                <Paper maxWidth="sm" className={classes.fixedHeightPaper} style={{marginLeft: 15}}>
+                <Paper maxWidth="sm" className={classes.fixedHeightPaper} style={{marginLeft:20}}>
                
-                    <img src={require('./bestprepLogo.png')} alt="bestPrep" style={{height: 180, width: 380, paddingLeft: 35, position: 'center'}}/>
+                    <img src={require('./bestpreplogotagline.png')} alt="bestPrep" style={{height: 180, width: 380, paddingLeft: 35, position: 'center'}}/>
 
-{/* 
-                    <div> <form><p>Login: <input type="text"></input></p></form></div> */}
+{/*<div> <form><p>Login: <input type="text"></input></p></form></div> */}
                     <form className={classes.container} noValidate autoComplete="off">
                     <TextField
                         id="standard-name"
