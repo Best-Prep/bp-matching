@@ -59,7 +59,7 @@ const UseStyles = makeStyles(theme => ({
     },
     menu: {
         width: 200,
-    }
+    },
   }));
 
  export default function homePage() {
@@ -76,8 +76,7 @@ const UseStyles = makeStyles(theme => ({
                
                     <img src={require('./bestpreplogotagline.png')} alt="bestPrep" style={{height: 180, width: 380, paddingLeft: 35, position: 'center'}}/>
 
-{/* 
-                    <div> <form><p>Login: <input type="text"></input></p></form></div> */}
+{/*<div> <form><p>Login: <input type="text"></input></p></form></div> */}
                     <form className={classes.container} noValidate autoComplete="off">
                     <TextField
                         id="standard-name"
