@@ -10,7 +10,6 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import TextField from '@material-ui/core/TextField'
 import SvgIcon from '@material-ui/core/SvgIcon';
-
 import ArrowRightAltRounded from '@material-ui/icons/ArrowRightAltRounded';
 
 const imgUrl=require('./background-pic.jpg')

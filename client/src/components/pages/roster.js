@@ -11,6 +11,7 @@ import RosterTable from '../molecules/rosterTable/roster_table';
 import Header from '../organisms/header/header';
 import SearchBar from '../organisms/classroom_card/SearchBar';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExportButton from '../atoms/exportToCSV/exportbutton'
 
 
 
@@ -67,7 +68,7 @@ export default function CustomizedExpansionPanels() {
         <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
         <h1>Class Roster </h1>
         <Container maxWidth="lg">
-        <button> Export to CSV </button>
+        <ExportButton>Export to CSV</ExportButton>
         {/* this is the expansion panel */}
       <ExpansionPanel square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2d-content" id="panel2d-header">
