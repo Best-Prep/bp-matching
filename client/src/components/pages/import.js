@@ -65,9 +65,12 @@ const Import = (props) => {
     }
 
     const handleSubmit = () => {
-        console.log("[CAREERDAY]    " + careerDay)
-        console.log("[REGISTERINGCLASSES]   " + registeringClasses)
-        console.log("[SCHOOLS]     " + schools)
+        console.log("[CAREERDAY]    ")
+        console.log(careerDay)
+        console.log("[REGISTERINGCLASSES]")
+        console.log(registeringClasses)
+        console.log("[SCHOOLS]")
+        console.log(schools)
         Swal.fire({
             title: 'Loading',
             text: "Contacting the server to complete your career day import",
@@ -181,14 +184,23 @@ const Import = (props) => {
     const handleStep3 = (event, subjectId, classRoomId) => {
         let classroomCopy = [...registeringClasses];
         let careerDayCopy = {...careerDay}
+        let subjectName = careerDayCopy.subjects.find(subject => subject.id === subjectId).name
+        console.log("SUBJECT NAME" + subjectName)
+        console.log(careerDayCopy.sessions)
+        let sessionId = careerDayCopy.sessions.find(session => session.name === subjectName).id
+        console.log("SESSION ID" + sessionId) 
         let classIndex = classroomCopy.findIndex(registeringClass => registeringClass.id === classRoomId)
         let sessionsCopy = classroomCopy[classIndex].sessions
-        let sessionIndex = sessionsCopy.findIndex(session => session.id === subjectId)
+        let sessionIndex = sessionsCopy.findIndex(session => session.id === sessionId)
+        console.log("[SESSION INDEX]")
+        console.log(sessionIndex)
         //Makes sure that every session of the subject has its seats value modified.
-        for(let x=0; x<periods ;x++){
-            classroomCopy[classIndex].sessions[sessionIndex+x].seats = event.target.value
+        for(let x=0; x<periods; x++){
+            classroomCopy[classIndex].sessions[sessionIndex+x].seats = parseInt(event.target.value)
         }
+        console.log(classroomCopy)
         console.log(careerDayCopy.sessions)
+        //TODO: Remove console logs, fix step 2 seats thing
         setRegisteringClasses(classroomCopy)
     }
     //This method takes in the step number, and returns the JSX content for that step

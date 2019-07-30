@@ -25,7 +25,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "https://bp-rest.azurewebsites.net/",
+  "proxy": "https://bp-azf.azurewebsites.net/",
   "browserslist": {
     "production": [
       ">0.2%",
