@@ -64,7 +64,7 @@ const UseStyles = makeStyles(theme => ({
             
             {/* Chart */}
       
-                <Paper maxWidth="sm" className={classes.fixedHeightPaper}>
+                <Paper maxWidth="sm" className={classes.fixedHeightPaper} style={{marginLeft:20}}>
                
                     <img src={require('./bestpreplogotagline.png')} alt="bestPrep" style={{height: 180, width: 380, paddingLeft: 35, position: 'center'}}/>
 
