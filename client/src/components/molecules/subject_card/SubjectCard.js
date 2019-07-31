@@ -27,7 +27,9 @@ const SubjectCard = (props) => {
                     label="Subject"
                     value={props.subjectName}
                     onChange={(event) => props.handleChange(event, props.index)}
-                    
+                    InputProps={{
+                        readOnly: true,
+                      }}
                 />
                 <TextField
                     name="seats"
