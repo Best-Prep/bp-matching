@@ -20,16 +20,8 @@ const useStyles = makeStyles(theme => ({
 function createData(Student, School, Teacher) {
   return { Student, School, Teacher};
 }
-
-const rows = [
-  createData('Frozen yoghurt', 159, 'Help', 24, 4.0),
-  createData('Ice cream sandwich',69 , 'Me', 37, 4.3),
-  createData('Eclair', 262, 'I',4 , 6.0),
-  createData('Cupcake', 305, 'Am', 4, 4.3),
-  createData('Gingerbread', 356, 'Expressing the strong desire to play ping pong', 49, 3.9),
-];
-
-export default function SimpleTable() {
+//TODO: Fix this table so that it is not hardcoded to have specific columns and rows, this would make it more reusable
+const RosterTable = (props) =>  {
   const classes = useStyles();
 
   return (
@@ -39,18 +31,15 @@ export default function SimpleTable() {
           <TableRow>
             <TableCell> Student</TableCell>
             <TableCell align="right">School</TableCell>
-            <TableCell align="right">Teacher</TableCell>
-           
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.name}>
+          {props.students.map(student => (
+            <TableRow key={student.id}>
               <TableCell component="th" scope="row">
-                {row.Student}
+                {student.firstName + " " + student.lastName}
               </TableCell>
-              <TableCell align="right">{row.School}</TableCell>
-              <TableCell align="right">{row.Teacher}</TableCell>
+              <TableCell align="right">{student.school}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -58,3 +47,5 @@ export default function SimpleTable() {
     </Paper>
   );
 }
+
+export default RosterTable;

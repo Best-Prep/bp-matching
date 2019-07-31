@@ -7,6 +7,7 @@ import Header from './components/organisms/header/header';
 import Import from './components/pages/import';
 import Roster from './components/pages/roster';
 import Override  from './components/pages/override';
+import classOverride from './components/pages/classOverride';
 import homePage from './components/pages/homePage';
 import careerDayDashboard from './components/pages/careerDayDashboard';
 import { ThemeProvider } from '@material-ui/styles';
@@ -49,8 +50,9 @@ function App() {
           <Route path="/" exact component={homePage} />
           <Route path="/dashboard" exact component={careerDayDashboard} />
           <Route path="/import" exact component={Import} />
-          <Route path="/Roster" exact component={Roster} />
-          <Route path="/Override" exact component={Override} />
+          <Route path="/roster/:id" exact component={Roster} />
+          <Route path="/override" exact component={Override} />
+          <Route path="/classOverride/:id" exact component={classOverride} />
         </div>
       </Router>
     </ThemeProvider>

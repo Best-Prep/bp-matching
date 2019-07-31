@@ -1,18 +1,18 @@
 # Table of Contents
-- [Table of Contents](#Table-of-Contents)
-  - [**Route: /api/import/getSheetData**](#Route-apiimportgetSheetData)
-  - [Expected Request Parameters (JSON)](#Expected-Request-Parameters-JSON)
-  - [Environmental Variables](#Environmental-Variables)
-  - [Response](#Response)
-  - [Usage](#Usage)
-  - [Packages Used](#Packages-Used)
+- [Table of Contents](#table-of-contents)
+  - [**Route: /api/import/getSheetData**](#route-apiimportgetsheetdata)
+  - [Expected Request Parameters (JSON)](#expected-request-parameters-json)
+  - [Environmental Variables](#environmental-variables)
+  - [Response](#response)
+  - [Usage](#usage)
+  - [Packages Used](#packages-used)
 
 ## **Route:  /api/import/getSheetData**
 
 ## Expected Request Parameters (JSON)
     - body
       - sheetLink
-      - careerDayDate : String mm/dd/yyyy
+      - careerDayDate : String yyyy-mm-dd
 ## Environmental Variables
     - DOCS_CLIENT_URL : String
     - DOCS_PRIVATE_KEY : String

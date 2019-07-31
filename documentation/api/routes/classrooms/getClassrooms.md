@@ -1,17 +1,17 @@
 # Table of Contents
-- [Table of Contents](#Table-of-Contents)
-  - [**Route: /api/classrooms/getClassrooms**](#Route-apiclassroomsgetClassrooms)
-  - [Expected Request Parameters (JSON)](#Expected-Request-Parameters-JSON)
-  - [Environmental Variables](#Environmental-Variables)
-  - [Response](#Response)
-  - [Usage](#Usage)
-  - [Packages Used](#Packages-Used)
+- [Table of Contents](#table-of-contents)
+  - [**Route: /api/classrooms/getClassrooms**](#route-apiclassroomsgetclassrooms)
+  - [Expected Request Parameters (JSON)](#expected-request-parameters-json)
+  - [Environmental Variables](#environmental-variables)
+  - [Response](#response)
+  - [Usage](#usage)
+  - [Packages Used](#packages-used)
 
 ## **Route: /api/classrooms/getClassrooms**
 
 ## Expected Request Parameters (JSON)
     - body
-      - careerDayDate: String mm/dd/yyyy
+      - careerDayDate: String yyyy-mm-dd
 ## Environmental Variables
     - COSMOSDB_CONNSTR: String
     - COSMOSDB_USER: String

@@ -19,27 +19,24 @@ const useStyles = makeStyles({
 });
 
 const ClassroomCard = (props) => {
-
+  
   const classes = useStyles();
-
   return (
-
-
    <Grid item xs={6} md={4} lg={4} xl={3}>
      <Card className={classes.card}>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h3">
-            {props.teacherName}
+            {props.classroom.teacher.firstName + " " + props.classroom.teacher.lastName}
           </Typography>
           <Typography gutterBottom variant="h7" component="h3">
-            {props.schoolName}
+            {props.classroom.school.name}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Container>
-        <Button><NavLink to="/Override" style={{ textDecoration: 'none' }}>View Class Schedule</NavLink></Button>
+        <Button><NavLink to={"/classOverride/" + props.classroom.id}   style={{ textDecoration: 'none' }}>View Class Schedule</NavLink></Button>
         </Container>
 
         {/* <Button size="small" color="primary" onClick={this.routeChange}>View Class Schedule</Button> */}

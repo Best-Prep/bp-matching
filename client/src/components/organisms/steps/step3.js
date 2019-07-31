@@ -51,7 +51,7 @@ const Step3 = (props) => {
                                 label="Seats"
                                 type="number"
                                 className={classes.textField}
-                                value={registeringClass.sessions[registeringClass.sessions.findIndex(session => session.id === subject.id)].seats}
+                                value={registeringClass.sessions[registeringClass.sessions.findIndex(session => session.name === subject.name)].seats}
                                 onChange={e => props.handleChange(e,subject.id,registeringClass.id)}
                             />
                         </>
