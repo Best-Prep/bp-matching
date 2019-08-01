@@ -6,6 +6,7 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
+import { Hidden } from '@material-ui/core';
 
 //TODO: styling and also create a local variable to hold the values of the subject cards, that way the screen doesnt have to rerender every time
 //TODO: Add uniq id to subject when new one is added

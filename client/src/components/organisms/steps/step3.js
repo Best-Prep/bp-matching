@@ -46,6 +46,7 @@ const Step3 = (props) => {
                         <>
                             <Typography>{registeringClass.teacher.firstName + ' ' + registeringClass.teacher.lastName}</Typography>
                             <Typography variant="h6" component="h6">{registeringClass.school.name}</Typography>
+                        
                             <TextField
                                 name="seats"
                                 label="Seats"
@@ -54,6 +55,7 @@ const Step3 = (props) => {
                                 value={registeringClass.sessions[registeringClass.sessions.findIndex(session => session.name === subject.name)].seats}
                                 onChange={e => props.handleChange(e,subject.id,registeringClass.id)}
                             />
+                            
                         </>
                     )
                 })}
@@ -73,7 +75,7 @@ const Step3 = (props) => {
                         aria-controls={"panel"+ subject.id + "bh-content"}
                         id={"panel" + subject.id + "bh-header"}
                     >
-                        <Typography className={classes.heading}>{subject.name}</Typography>
+                        <Typography className={classes.heading} style={{fontWeight: 'bold'}}>{subject.name}</Typography>
                         <Typography className={classes.secondaryHeading}>Total Seats:&nbsp;{subject.seats} </Typography>
                         <Typography className={classes.secondaryHeading}>&nbsp; &nbsp; Available Seats:&nbsp; </Typography>
                     </ExpansionPanelSummary>

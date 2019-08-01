@@ -13,7 +13,6 @@ const NavBar = () => {
                 <NavBarItem label="Dashboard" linkTo="/dashboard"/>
                 <NavBarItem label="Import" linkTo="/import"/>
                 <NavBarItem label="Override" linkTo="/Override"/>
-                <NavBarItem label="Roster" linkTo="/Roster"/>
             </ListItem>
         </List>
     )

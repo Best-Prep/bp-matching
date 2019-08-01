@@ -10,6 +10,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
 import {TextField} from '@material-ui/core';
+
 const UseStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
@@ -54,7 +55,9 @@ const Override = (props) => {
         </div>
         <h1>Select a Classroom</h1>
 
-        <Container style={{marginBottom: 20}}>
+      <Container>
+        <Grid container style={{marginBottom: 20, marginTop: 20, alignContent: 'center'}}>
+          <Grid item sm={6}>
           <TextField
               id="date"
               label="Date of Career Day"
@@ -65,12 +68,16 @@ const Override = (props) => {
                 shrink: true,
               }}
           />
+          </Grid>
+          <Grid item sm={6}>
           <Button variant="contained" color="primary" className={classes.button} disabled={careerDayId === ""}><Link to={"/roster/" + careerDayId} style={{textDecoration: 'none', color:"inherit"}}>View Session Rosters</Link></Button>
-          <SearchBar handleChange = {handleChange}/>
+          </Grid>
+          </Grid>
+          </Container>
+          {/* <SearchBar handleChange = {handleChange}/> */}
           {/* <input type="text" className="input" placeholder="Search..." />
           <ul>
           </ul> */}
-        </Container>
         <div style={{marginBottom:70, width: '80%', margin:'auto'}}>
           <Grid container spacing={6} className={classes.rootGrid}> 
             {dataCopy.filter(e => e.school.name.toUpperCase().includes(searchField.toUpperCase())||  (e.teacher.firstName + e.teacher.lastName).toUpperCase().includes(searchField.toUpperCase()) ).map((item, index) => {
