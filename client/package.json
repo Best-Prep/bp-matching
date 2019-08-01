@@ -9,6 +9,7 @@
     "chart.js": "^2.8.0",
     "randomcolor": "^0.5.4",
     "react": "^16.8.6",
+    "react-csv": "^1.1.1",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
