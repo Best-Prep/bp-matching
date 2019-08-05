@@ -16,7 +16,7 @@ const CareerDayStats = (props) => {
                 <br/>
                 {props.totalStudents}
                 <br/>
-                Total Subjects:
+                Total Careers:
                 <br/>
                 {props.totalSubjects}
             </Typography>

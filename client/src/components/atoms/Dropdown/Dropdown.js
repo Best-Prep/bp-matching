@@ -1,5 +1,7 @@
 import React from 'react'
 import { Select, MenuItem } from '@material-ui/core';
+import Input from '@material-ui/core/Input';
+
 
 /* This is how you use this component elsewhere.
  <Dropdown name="teachers" id="teacher-dropdown" menuItems=[<some items>]
@@ -13,6 +15,7 @@ const Dropdown = (props) => {
             <Select
                 value={props.value}
                 onChange={(e) => props.handleChange(props.studentIndex,props.classIndex,e)}
+                input={<Input name="name" id="name-disabled" />}
             >
                 <MenuItem value={props.value}>
                     {props.value}

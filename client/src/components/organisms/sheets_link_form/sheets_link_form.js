@@ -64,7 +64,7 @@ const SheetForm = (props) => {
                 shrink: true,
               }}
             />
-            <Button variant="contained" color="primary" className={classes.button} onClick={e => props.handleSubmit(careerDayDate)}>
+            <Button variant="contained" color="primary" className={classes.button} onClick={() => props.handleSubmit(careerDayDate)}>
               Submit
             </Button>
       </div>

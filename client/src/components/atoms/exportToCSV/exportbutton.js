@@ -11,13 +11,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ContainedButtons() {
+export default function ContainedButtons(props) {
   const classes = useStyles();
 
   return (
     <div>
       <Button variant="contained" color="primary" className={classes.button}>
-        Export to CSV
+        {props.children}
       </Button>
       </div>
   );

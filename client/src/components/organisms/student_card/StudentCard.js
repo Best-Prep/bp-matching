@@ -39,7 +39,7 @@ const StudentCard = (props) => {
                                 <List className={classes.lists}>
                                     {props.schedule.map((item,index) => (
                                         <ListItem>
-                                            <Dropdown menuItems={["math","science","physics","finance"]} studentIndex={props.studentIndex} classIndex={index} value={item.name} key={"item"+index} handleChange={props.handleChange}/>
+                                            <Dropdown menuItems={["math","science","physics","finance"]} studentIndex={props.studentIndex} classIndex={index} value={item.name} key={"item"+index} display={false} handleChange={props.handleChange} InputProps={{readOnly: true}}/>
                                         </ListItem>
                                     ))}
                                 </List>

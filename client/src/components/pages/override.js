@@ -54,8 +54,6 @@ const Override = (props) => {
           <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
         </div>
         <h1>Select a Classroom</h1>
-
-      <Container>
         <Grid container style={{marginBottom: 20, marginTop: 20, alignContent: 'center'}}>
           <Grid item sm={6}>
           <TextField
@@ -73,7 +71,6 @@ const Override = (props) => {
           <Button variant="contained" color="primary" className={classes.button} disabled={careerDayId === ""}><Link to={"/roster/" + careerDayId} style={{textDecoration: 'none', color:"inherit"}}>View Session Rosters</Link></Button>
           </Grid>
           </Grid>
-          </Container>
           {/* <SearchBar handleChange = {handleChange}/> */}
           {/* <input type="text" className="input" placeholder="Search..." />
           <ul>

@@ -94,9 +94,9 @@ const Import = (props) => {
                     type: 'success',
                     title: 'Success!',
                     text: response.data.message,
-                    footer: 'Note: This has only imported the data from the sheet, none of this data will be saved until you complete all of the import steps',
+                    footer: 'Note: This has created the schedules for each student',
                     onClose: () => {
-                        handleNext()
+                        props.history.push('/override')
                     }
                 })
             }else{
@@ -124,7 +124,8 @@ const Import = (props) => {
         //TODO: add functionality to actually submit to the express server / mongo
         /*Axios is a promised based HTTP client for node, this makes a post request to the backend
          express server and provides the sheet link as part of the request*/
-        Swal.fire({
+         console.log(date)
+         Swal.fire({
             title: 'Loading',
             text: "Contacting the server to import your sheet",
             onBeforeOpen: () => {
@@ -259,7 +260,7 @@ const Import = (props) => {
     }
     //TODO: fix grid
     const classes = UseStyles();
-    const steps = ['Add link to spreadsheet', 'Add Subjects and Seats', 'Assign Seats to Classrooms', 'Finish'];
+    const steps = ['Import data', 'Assign seats by career', 'Assign seats by classroom', 'Matching'];
     return (
         <div style={{fontWeight: 'bold'}}>
         <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
@@ -279,9 +280,8 @@ const Import = (props) => {
                     <div>
                         {activeStep === steps.length - 1? (
                             <div>
-                                {careerDay.date}
                                 <Container>
-                                <Done className={classes.icon}></Done>
+                                    <Done className={classes.icon}></Done>
                                 </Container>
                                 <Typography className={classes.instructions}>
                                     You have completed every step! Click submit to complete the import of your Spreadsheet.

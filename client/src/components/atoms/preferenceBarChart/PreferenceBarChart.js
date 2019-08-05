@@ -9,15 +9,13 @@ import {
 const PreferenceBarChart = (props) => {
     
     //TODO: make this receive props of the data
-    let dataIn = require('../../../registeringClasses.json')
+    let dataIn = props.registeringClasses
     let tallyData = {}
 
     //Tally up the number of students that preferred each subject
     dataIn.forEach(regClass => {
         regClass.students.forEach(student => {
-            student.preferedSubjects.forEach(subject => {
-                tallyData[subject.name]= (tallyData[subject.name]!=null) ? tallyData[subject.name]+1 : 1
-            })
+            tallyData[student.preferredSubjects[0].name] = (tallyData[student.preferredSubjects[0].name]!=null) ? tallyData[student.preferredSubjects[0].name]+1 : 1
         })
     });
     
