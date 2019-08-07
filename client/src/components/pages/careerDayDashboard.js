@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 //Utilities
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import getApiURL from '../../utilityMethods/getApiURL';
 //Material-UI
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -54,12 +55,14 @@ const UseStyles = makeStyles(theme => ({
   var yyyy = tomorrow.getFullYear();
   tomorrow = yyyy + '-' + mm + '-' + dd;
 const CareerDayDashboard = () => {
+    let url = getApiURL();
+    console.log(url)
     let rowsIn = []
     const [careerDayDate, setCareerDayDate] = useState("")
     const [data, setData] = useState({})
     const handleDateChange = (event) => {
       console.log("[FIRING DATE CHANGE]")
-        axios.post('/api/careerDay/getDashboard', 
+        axios.post(url + '/api/careerDay/getDashboard', 
           {
             "careerDayDate": event.target.value
           },{headers: {

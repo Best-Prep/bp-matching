@@ -24,7 +24,7 @@ const SubjectCard = (props) => {
         <Paper className={classes.paper}>
                 <TextField
                     name="name"
-                    label="Subject"
+                    label="Career"
                     value={props.subjectName}
                     onChange={(event) => props.handleChange(event, props.index)}
                     InputProps={{

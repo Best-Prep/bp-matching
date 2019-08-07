@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }));
 
 const StudentCard = (props) => {
-
+    console.log(props.schedule)
     const classes = useStyles();
     //TODO: add actual functionality instead of the dummy data in the Dropdown menuItems prop, fix handleChange for dropdown
     return (

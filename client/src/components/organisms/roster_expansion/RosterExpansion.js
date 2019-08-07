@@ -54,7 +54,7 @@ const RosterExpansion = (props) => {
     return (
         <ExpansionPanel square expanded={props.expanded === props.session.name + props.session.period} onChange={props.handleChange(props.session.name + props.session.period)}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2d-content" id="panel2d-header">
-                <Typography>{props.session.name + (props.session.period + 1)}</Typography>
+                <Typography>{props.session.name + " " + (props.session.period + 1)}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
                 <Container maxWidth="lg">

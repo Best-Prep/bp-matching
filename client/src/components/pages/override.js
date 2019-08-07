@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
 import SearchBar from '../organisms/classroom_card/SearchBar';
 import Container from '@material-ui/core/Container';
+import getApiURL from '../../utilityMethods/getApiURL';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
@@ -24,6 +25,7 @@ const UseStyles = makeStyles(theme => ({
   }));
 
 const Override = (props) => {
+    let url = getApiURL();
     const [searchField, setsearchField] = useState('')
     const [classroomData, setclassroomData] = useState([])
     const [careerDayId, setCareerDayId] = useState("")
@@ -35,7 +37,7 @@ const Override = (props) => {
 
     const handleDateChange = (event) => {
       console.log(event.target.value)
-      axios.post('/api/classrooms/getClassrooms', 
+      axios.post(url + '/api/classrooms/getClassrooms', 
         {
           "careerDayDate": event.target.value
         },{headers: {

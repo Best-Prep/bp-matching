@@ -10,9 +10,9 @@ const NavBar = () => {
     return (
         <List component="nav">
             <ListItem component="div">
-                <NavBarItem label="Dashboard" linkTo="/dashboard"/>
                 <NavBarItem label="Import" linkTo="/import"/>
-                <NavBarItem label="Override" linkTo="/Override"/>
+                <NavBarItem label="Matching Results" linkTo="/Override"/>
+                <NavBarItem label="Statistics" linkTo="/dashboard"/>
             </ListItem>
         </List>
     )

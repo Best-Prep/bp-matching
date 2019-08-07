@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import getApiURL from '../../utilityMethods/getApiURL';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Header from '../organisms/header/header';
@@ -21,11 +22,12 @@ const useStyles = makeStyles(theme => ({
   //TODO: Add an actual list of potential classes to choose from / implement functionality to determine if class is full
   
 const ClassOverride = (props) => {
+    let url = getApiURL()
     const [searchField, setsearchField] = useState('')
     const [students, setStudents] = useState([])
     const [info, setInfo] = useState({teacherName: "", school: "" })
     useEffect(() => {
-      axios.post('/api/classrooms/getStudents',
+      axios.post(url + '/api/classrooms/getStudents',
         {
           "classId": props.match.params.id
         },{headers: {

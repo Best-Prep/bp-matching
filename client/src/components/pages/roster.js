@@ -7,6 +7,7 @@ import Container from '@material-ui/core/Container';
 import RosterExpansion from '../organisms/roster_expansion/RosterExpansion';
 import { CSVLink, CSVDownload } from "react-csv";
 import ReactExport from "react-data-export"; 
+import getApiURL from '../../utilityMethods/getApiURL';
 
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
@@ -15,10 +16,11 @@ const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 let exportData = []
 
 const Roster = (props) => {
+  let url = getApiURL();
   const [expanded, setExpanded] = useState('panel1');
   const [state, setState] = useState()
   useEffect(() => {
-    axios.post('/api/careerDay/getExportData',
+    axios.post(url + '/api/careerDay/getExportData',
       {
         "careerDayId": props.match.params.id
       },{headers: {
@@ -121,14 +123,14 @@ var dataSet2 = [
     }
 ];
   return (
-    <div>
+    <div style={{fontWeight: 'bold'}}>
       <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
       <h1>Session Rosters</h1>
       <Container maxWidth="lg">
         
         {state && state.studentSchedules ?(
           <>
-          <ExcelFile element={<ExportButton>E</ExportButton>}>
+          <ExcelFile element={<ExportButton>Export Data</ExportButton>}>
             <ExcelSheet data={state.studentSchedules} name="StudentSchedules">
               {Object.keys(state.studentSchedules[0]).map((item => {
                 return(
@@ -157,7 +159,7 @@ var dataSet2 = [
           })}
           </>
         ):(
-          <ExportButton>E</ExportButton>
+          <ExportButton>Export Data</ExportButton>
         )}
       </Container>
     </div>

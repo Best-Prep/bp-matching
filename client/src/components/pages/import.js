@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 //Utilities
 import Swal from 'sweetalert2'
 import axios from 'axios'
-
+import getApiURL from '../../utilityMethods/getApiURL';
 import { makeStyles } from '@material-ui/core/styles';
 import { withTheme } from '@material-ui/styles';
 //Components -- Material-UI
@@ -45,6 +45,7 @@ const UseStyles = makeStyles(() => ({
 }))
 
 const Import = (props) => {
+    let url = getApiURL();
     const [sheetLink, setSheetLink] = useState("")
     const [careerDay, setCareerDay] = useState()
     const [registeringClasses, setRegisteringClasses] = useState()
@@ -79,7 +80,7 @@ const Import = (props) => {
             },
             footer: 'Please be patient, this could take up to a minute'
         })
-        axios.post('/api/matching', {
+        axios.post(url + '/api/matching', {
             careerDay: careerDay,
             registeringClasses: registeringClasses,
             schools: schools,
@@ -133,7 +134,7 @@ const Import = (props) => {
             },
             footer: 'Please be patient, this could take up to 3 minutes. If this process takes longer than 3 minutes, consider double checking the link to the spreadsheet and the date.'
         })
-        axios.post('/api/import/getSheetData', {
+        axios.post(url + '/api/import/getSheetData', {
             sheetLink: sheetLink,
             numPeriods: periods,
             careerDayDate: date
