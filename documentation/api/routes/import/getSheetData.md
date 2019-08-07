@@ -1,13 +1,13 @@
 # Table of Contents
 - [Table of Contents](#table-of-contents)
-  - [**Route: /api/import/getSheetData**](#route-apiimportgetsheetdata)
+  - [**Route: /api/careerDay/getSheetData**](#route-apicareerdaygetsheetdata)
   - [Expected Request Parameters (JSON)](#expected-request-parameters-json)
   - [Environmental Variables](#environmental-variables)
   - [Response](#response)
   - [Usage](#usage)
   - [Packages Used](#packages-used)
 
-## **Route:  /api/import/getSheetData**
+## **Route:  /api/careerDay/getSheetData**
 
 ## Expected Request Parameters (JSON)
     - body
