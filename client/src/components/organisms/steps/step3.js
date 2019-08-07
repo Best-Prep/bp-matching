@@ -41,9 +41,11 @@ const Step3 = (props) => {
     const renderSchools = (subject) => {
         return(
             <>
+          
                 {props.registeringClasses.map(registeringClass => {
+              
                     return(
-                        <>
+                        <Grid item xs={3}>
                             <Typography>{registeringClass.teacher.firstName + ' ' + registeringClass.teacher.lastName}</Typography>
                             <Typography variant="h6" component="h6">{registeringClass.school.name}</Typography>
                         
@@ -56,7 +58,8 @@ const Step3 = (props) => {
                                 onChange={e => props.handleChange(e,subject.id,registeringClass.id)}
                             />
                             
-                        </>
+                        </Grid>
+                   
                     )
                 })}
             </>
@@ -77,12 +80,12 @@ const Step3 = (props) => {
                     >
                         <Typography className={classes.heading} style={{fontWeight: 'bold'}}>{subject.name}</Typography>
                         <Typography className={classes.secondaryHeading}>Total Seats:&nbsp;{subject.seats} </Typography>
-                        <Typography className={classes.secondaryHeading}>&nbsp; &nbsp; Available Seats:&nbsp; </Typography>
+                        {/* <Typography className={classes.secondaryHeading}>&nbsp; &nbsp; Available Seats:&nbsp; </Typography> */}
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
-                        <Typography>
+                        <Grid container spacing={6}>
                             {renderSchools(subject)}
-                        </Typography>
+                        </Grid>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
             )

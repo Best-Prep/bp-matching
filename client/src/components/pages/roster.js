@@ -6,7 +6,7 @@ import axios from 'axios';
 import Container from '@material-ui/core/Container';
 import RosterExpansion from '../organisms/roster_expansion/RosterExpansion';
 import { CSVLink, CSVDownload } from "react-csv";
-import ReactExport from "react-data-export";
+import ReactExport from "react-data-export"; 
 
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
@@ -16,18 +16,65 @@ let exportData = []
 
 const Roster = (props) => {
   const [expanded, setExpanded] = useState('panel1');
-  const [sessions, setSessions] = useState([])
-
+  const [state, setState] = useState()
   useEffect(() => {
-    axios.post('/api/careerDay/getSessions',
+    axios.post('/api/careerDay/getExportData',
       {
         "careerDayId": props.match.params.id
       },{headers: {
         'Content-Type': 'application/json',
       }}
     ).then(function (response) {
-      
-      setSessions(response.data.sessions)
+      let classroomsdata = [...response.data.classrooms]
+      let careerdaydata = response.data.careerDay
+      let studentSchedules = [];
+      for (let i = 0; i < classroomsdata.length; i++) {
+          let classroom = classroomsdata[i];
+          for (let j = 0; j < classroom.students.length; j++) {
+              let student = classroom.students[j];
+              let studJSON = {};
+              studJSON["Student"] = student.firstName + " " + student.lastName;
+              studJSON["High School"] = classroom.school.name;
+              for (let k = 0; k < student.schedule.length; k++) {
+                  let period = "Period " + (k + 1);
+                  studJSON[period] = student.schedule[k].name;
+                  console.log("ASDFASDF" + student.schedule[k].name)
+              }
+              studentSchedules.push(studJSON);
+          }
+      }
+
+          let sessRosters = [];
+
+          // iterating through the subjects
+          for (let i = 0; i < careerdaydata.subjects.length; i++) {
+              let subjName = careerdaydata.subjects[i].name;
+              let sessions = careerdaydata.sessions.filter(sess => sess.name === subjName);
+
+              // iterating through the time periods within a subject
+              for (let j = 0; j < sessions.length; j++) {        
+                  let studArray = [];
+
+                  let students = sessions[j].assignedStudents;
+
+                  // iterating through the students within a subject at a time period 
+                  for (let k = 0; k < students.length; k++) {
+                      let studJSON = {};
+
+                      let stud = students[k];
+                      let sessName = subjName + " " + (j + 1);
+                      studJSON["SessionName"] = sessName;
+                      studJSON["Name"] = stud.firstName + " " + stud.lastName;
+                      studJSON["School"] = stud.school;
+                      studJSON["Present"] = "";
+
+                      studArray.push(studJSON);
+                  }
+                sessRosters.push(studArray);
+              }
+          }
+          console.log(sessRosters)
+          setState({studentSchedules: studentSchedules, sessRosters: sessRosters, sessions: response.data.careerDay.sessions})
     })
   }, [props.match.params.id])
 
@@ -78,29 +125,40 @@ var dataSet2 = [
       <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
       <h1>Session Rosters</h1>
       <Container maxWidth="lg">
-        <ExportButton>
-          E
-        </ExportButton>
-        <ExcelFile element={<button>Download Data</button>}>
-            <ExcelSheet data={dataSet1} name="Employees">
-                <ExcelColumn label="Name" value="name"/>
-                <ExcelColumn label="Wallet Money" value="amount"/>
-                <ExcelColumn label="Gender" value="sex"/>
-                <ExcelColumn label="Marital Status"
-                              value={(col) => col.is_married ? "Married" : "Single"}/>
+        
+        {state && state.studentSchedules ?(
+          <>
+          <ExcelFile element={<ExportButton>E</ExportButton>}>
+            <ExcelSheet data={state.studentSchedules} name="StudentSchedules">
+              {Object.keys(state.studentSchedules[0]).map((item => {
+                return(
+                  <ExcelColumn label={item} value={item}/>
+                )
+              }))}
             </ExcelSheet>
-            <ExcelSheet data={dataSet2} name="Leaves">
-                <ExcelColumn label="Name" value="name"/>
-                <ExcelColumn label="Total Leaves" value="total"/>
-                <ExcelColumn label="Remaining Leaves" value="remaining"/>
-            </ExcelSheet>
-        </ExcelFile>
-        {/* this is the expansion panel */}
-        {sessions.map(session => {
-          return(
-            <RosterExpansion session={session} expanded={expanded} handleChange={handleChange}/>
-          )
-        })}
+            {state.sessRosters.map(((sessionRoster,index) => {
+              console.log(sessionRoster)
+              console.log(index)
+              return(
+                <ExcelSheet data={sessionRoster} name={sessionRoster[0].SessionName}>
+                  <ExcelColumn label={sessionRoster[0].SessionName} value="Present"/>
+                  <ExcelColumn label="Student" value="Name"/>
+                  <ExcelColumn label="School" value="School"/>
+                  <ExcelColumn label="Present" value="Present"/>
+                </ExcelSheet>
+              )
+          }))}
+          </ExcelFile>
+          {/* this is the expansion panel */}
+          {state.sessions.map(session => {
+            return(
+              <RosterExpansion session={session} expanded={expanded} handleChange={handleChange}/>
+            )
+          })}
+          </>
+        ):(
+          <ExportButton>E</ExportButton>
+        )}
       </Container>
     </div>
   )
