@@ -34,6 +34,7 @@ const Override = (props) => {
     }
 
     const handleDateChange = (event) => {
+      console.log(event.target.value)
       axios.post('/api/classrooms/getClassrooms', 
         {
           "careerDayDate": event.target.value

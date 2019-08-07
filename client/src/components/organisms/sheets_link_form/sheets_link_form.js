@@ -35,7 +35,7 @@ const SheetForm = (props) => {
               label="Date of Career Day"
               type="date"
               defaultValue={tomorrow}
-              onChange={date => careerDayDate = date}
+              onChange={event => careerDayDate = event.target.value}
               className={classes.textField}
               InputLabelProps={{
                 shrink: true,
@@ -64,7 +64,7 @@ const SheetForm = (props) => {
                 shrink: true,
               }}
             />
-            <Button variant="contained" color="primary" className={classes.button} onClick={() => props.handleSubmit(careerDayDate)}>
+            <Button variant="contained" color="primary" className={classes.button} onClick={(event) => props.handleSubmit(careerDayDate)}>
               Submit
             </Button>
       </div>

@@ -79,7 +79,7 @@ const Import = (props) => {
             },
             footer: 'Please be patient, this could take up to a minute'
         })
-        axios.post('api/matching', {
+        axios.post('/api/matching', {
             careerDay: careerDay,
             registeringClasses: registeringClasses,
             schools: schools,
@@ -131,9 +131,9 @@ const Import = (props) => {
             onBeforeOpen: () => {
                 Swal.showLoading()
             },
-            footer: 'Please be patient, this could take up to a minute'
+            footer: 'Please be patient, this could take up to 3 minutes. If this process takes longer than 3 minutes, consider double checking the link to the spreadsheet and the date.'
         })
-        axios.post('api/import/getSheetData', {
+        axios.post('/api/import/getSheetData', {
             sheetLink: sheetLink,
             numPeriods: periods,
             careerDayDate: date

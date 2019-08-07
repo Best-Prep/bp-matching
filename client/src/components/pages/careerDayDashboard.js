@@ -59,7 +59,7 @@ const CareerDayDashboard = () => {
     const [data, setData] = useState({})
     const handleDateChange = (event) => {
       console.log("[FIRING DATE CHANGE]")
-        axios.post('api/careerDay/getDashboard', 
+        axios.post('/api/careerDay/getDashboard', 
           {
             "careerDayDate": event.target.value
           },{headers: {
