@@ -8,7 +8,7 @@
   - [Packages Used](#packages-used)
 
 ## **Route:  /api/careerDay/getSheetData**
-Is 
+
 ## Expected Request Parameters (JSON)
     - body
       - sheetLink
