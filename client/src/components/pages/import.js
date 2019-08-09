@@ -46,6 +46,7 @@ const UseStyles = makeStyles(() => ({
 
 const Import = (props) => {
     let url = getApiURL();
+    const [stepCompleted, setStepCompleted] = useState(false)
     const [sheetLink, setSheetLink] = useState("")
     const [careerDay, setCareerDay] = useState()
     const [registeringClasses, setRegisteringClasses] = useState()
@@ -59,8 +60,14 @@ const Import = (props) => {
     //Handles the change of the sheet link text field
     const handleChange = event => {
         if(event.target.id === "period"){
+            if(sheetLink.length>0){
+                setStepCompleted(true)
+            }
             setPeriods(event.target.value)
         }else{
+            if(periods>0){
+                setStepCompleted(true)
+            }
             setSheetLink(event.target.value);
         }
     }
@@ -90,31 +97,26 @@ const Import = (props) => {
           /*This function is called after the request has received a response,
            it fires the alert announcing the success of the import */ 
           .then(function (response) {
-            if (response.status == 200){
-                Swal.fire({
-                    type: 'success',
-                    title: 'Success!',
-                    text: response.data.message,
-                    footer: 'Note: This has created the schedules for each student',
-                    onClose: () => {
-                        props.history.push('/override')
-                    }
-                })
-            }else{
-                Swal.fire({
-                    type: 'error',
-                    title: 'Oops...',
-                    text: response.data.message,
-                    footer: '',
-                    onClose: () => {
-                        handleNext()
-                    }
-                })
-            }
-            
+            Swal.fire({
+                type: 'success',
+                title: 'Success!',
+                text: response.data.message,
+                footer: 'Note: This has created the schedules for each student',
+                onClose: () => {
+                    props.history.push('/override')
+                }
+            })
           })
           //This catches the potential error that the request could encounter
           .catch(function (error) {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops!',
+                text: error.response.data.message,
+                onClose: () => {
+                    handleBack()
+                }
+            })
             console.log(error);
           });
     }
@@ -134,7 +136,7 @@ const Import = (props) => {
             },
             footer: 'Please be patient, this could take up to 3 minutes. If this process takes longer than 3 minutes, consider double checking the link to the spreadsheet and the date.'
         })
-        axios.post(url + '/api/import/getSheetData', {
+        axios.post(url + 'api/import/getSheetData', {
             sheetLink: sheetLink,
             numPeriods: periods,
             careerDayDate: date
@@ -156,10 +158,19 @@ const Import = (props) => {
                 onClose: () => {
                     handleNext()
                 }
-            })
+            }) 
           })
           //This catches the potential error that the request could encounter
           .catch(function (error) {
+            let message = ""
+            if (error.response && error.response.data && error.response.data.message){
+                message = error.response.data.message
+            }
+            Swal.fire({
+                type: 'error',
+                title: 'Oops!',
+                text: message,
+            })
             console.log(error);
           });
     }
@@ -248,6 +259,7 @@ const Import = (props) => {
     }
     //Handles going to the ext step
     const handleNext = () => {
+        setStepCompleted(true)
         setActiveStep(prevActiveStep => prevActiveStep + 1)
     }
     //Handles the user going back a step
@@ -315,7 +327,7 @@ const Import = (props) => {
                                         Back
                                     </Button>
                                     <Button
-                                        disabled={activeStep === 0 || activeStep === 3} 
+                                        disabled={activeStep === 0 || activeStep === 3 || !stepCompleted} 
                                         variant="contained"
                                         color="primary"
                                         onClick={handleNext}
