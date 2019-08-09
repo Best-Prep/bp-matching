@@ -1,6 +1,6 @@
 function getApiURL(){
     if(process.env.NODE_ENV === 'production'){
-        return("https://bp-azf.azurewebsites.net")
+        return("https://bp-matching-backend.azurewebsites.net")
     }else{
         return("")
     }
