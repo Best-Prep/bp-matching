@@ -1,5 +1,4 @@
-import React, {useEffect} from 'react'
-import randomColor from 'randomcolor'
+import React from 'react'
 import { Typography } from '@material-ui/core';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Label

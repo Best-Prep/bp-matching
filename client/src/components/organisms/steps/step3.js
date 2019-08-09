@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StepInstructions from '../../molecules/step_instructions/StepInstructions'
 import Grid from '@material-ui/core/Grid';
-import { Container, TextField } from '@material-ui/core';
+import {TextField } from '@material-ui/core';
 
 
 const UseStyles = makeStyles(theme => ({

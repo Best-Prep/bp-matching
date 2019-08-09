@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../organisms/header/header';
 import ExportButton from '../atoms/exportToCSV/exportbutton'
 import axios from 'axios';
 import Container from '@material-ui/core/Container';
 import RosterExpansion from '../organisms/roster_expansion/RosterExpansion';
-import { CSVLink, CSVDownload } from "react-csv";
 import ReactExport from "react-data-export"; 
 import getApiURL from '../../utilityMethods/getApiURL';
 
@@ -35,7 +33,8 @@ const Roster = (props) => {
           for (let j = 0; j < classroom.students.length; j++) {
               let student = classroom.students[j];
               let studJSON = {};
-              studJSON["Student"] = student.firstName + " " + student.lastName;
+              studJSON["First Name"] = student.firstName;
+              studJSON["Last Name"] = student.lastName;
               studJSON["High School"] = classroom.school.name;
               for (let k = 0; k < student.schedule.length; k++) {
                   let period = "Period " + (k + 1);
@@ -66,7 +65,8 @@ const Roster = (props) => {
                       let stud = students[k];
                       let sessName = subjName + " " + (j + 1);
                       studJSON["SessionName"] = sessName;
-                      studJSON["Name"] = stud.firstName + " " + stud.lastName;
+                      studJSON["FirstName"] = stud.firstName;
+                      studJSON["LastName"] = stud.lastName;
                       studJSON["School"] = stud.school;
                       studJSON["Present"] = "";
 
@@ -83,45 +83,6 @@ const Roster = (props) => {
   const handleChange = panel => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
-  const dataSet1 = [
-    {
-        name: "Johson",
-        amount: 30000,
-        sex: 'M',
-        is_married: true
-    },
-    {
-        name: "Monika",
-        amount: 355000,
-        sex: 'F',
-        is_married: false
-    },
-    {
-        name: "John",
-        amount: 250000,
-        sex: 'M',
-        is_married: false
-    },
-    {
-        name: "Josef",
-        amount: 450500,
-        sex: 'M',
-        is_married: true
-    }
-];
-
-var dataSet2 = [
-    {
-        name: "Johnson",
-        total: 25,
-        remaining: 16
-    },
-    {
-        name: "Josef",
-        total: 25,
-        remaining: 7
-    }
-];
   return (
     <div style={{fontWeight: 'bold'}}>
       <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
@@ -144,7 +105,8 @@ var dataSet2 = [
               return(
                 <ExcelSheet data={sessionRoster} name={sessionRoster[0].SessionName}>
                   <ExcelColumn label={sessionRoster[0].SessionName} value="Present"/>
-                  <ExcelColumn label="Student" value="Name"/>
+                  <ExcelColumn label="First Name" value="FirstName"/>
+                  <ExcelColumn label="Last Name" value="LastName"/>
                   <ExcelColumn label="School" value="School"/>
                   <ExcelColumn label="Present" value="Present"/>
                 </ExcelSheet>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 
 //Utilities
 import { makeStyles } from '@material-ui/core/styles';
@@ -58,7 +58,7 @@ const CareerDayDashboard = () => {
     let url = getApiURL();
     console.log(url)
     let rowsIn = []
-    const [careerDayDate, setCareerDayDate] = useState("")
+    const [] = useState("")
     const [data, setData] = useState({})
     const handleDateChange = (event) => {
       console.log("[FIRING DATE CHANGE]")

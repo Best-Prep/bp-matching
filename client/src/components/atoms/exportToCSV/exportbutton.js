@@ -19,6 +19,6 @@ export default function ContainedButtons(props) {
       <Button variant="contained" color="primary" className={classes.button}>
         {props.children}
       </Button>
-      </div>
+    </div>
   );
 }

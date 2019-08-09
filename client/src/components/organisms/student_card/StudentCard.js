@@ -29,7 +29,7 @@ const StudentCard = (props) => {
                     <Grid item>
                         <div style={{paddingLeft:30}}>
                         <Typography>
-                            {props.studentName}
+                            <h4>{props.studentName}</h4>
                         </Typography>
                         </div>
                     </Grid>
@@ -38,9 +38,11 @@ const StudentCard = (props) => {
                             <Typography spacing={3}>
                                 <List className={classes.lists}>
                                     {props.schedule.map((item,index) => (
+                                        <Grid item>
                                         <ListItem>
-                                            <Dropdown menuItems={["math","science","physics","finance"]} studentIndex={props.studentIndex} classIndex={index} value={item.name} key={"item"+index} display={false} handleChange={props.handleChange} InputProps={{readOnly: true}}/>
+                                            <p>{item.name}</p>
                                         </ListItem>
+                                        </Grid>
                                     ))}
                                 </List>
                             </Typography>
