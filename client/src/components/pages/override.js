@@ -56,7 +56,7 @@ const Override = (props) => {
         <div style={{fontWeight: 'bold'}}>
           <Header linkTo='/' headName='BestPrep' style={{fontWeight: 'bold'}}/>
         </div>
-        <h1>Select a Classroom</h1>
+        <h1>Select a Career Day</h1>
         <Grid container style={{marginBottom: 20, marginTop: 20, alignContent: 'center'}}>
           <Grid item sm={6}>
           <TextField

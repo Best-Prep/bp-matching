@@ -67,7 +67,7 @@ const ClassOverride = (props) => {
         <div style={{marginTop:20}}>
         <Grid container spacing={3} className={classes.root}>
             <Grid container item direction="column" spacing={2} xs={12}>
-                {students.filter(e => e.firstName.toUpperCase().includes(searchField.toUpperCase())).map((item,index) => (
+                {students.filter(e => (e.firstName + " " + e.lastName).toUpperCase().includes(searchField.toUpperCase())).map((item,index) => (
                     <Grid item key={item.id}>
                         <StudentCard studentIndex = {index} studentName={item.firstName + " " + item.lastName} schedule={item.schedule} handleChange={handleClassChange} InputProps={{
                         readOnly: true

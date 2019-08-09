@@ -43,5 +43,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://bp-azf.azurewebsites.net/"
+  "proxy": "https://bp-azf.azurewebsites.net"
 }
